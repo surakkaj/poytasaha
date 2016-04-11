@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>LoginEasyBv1</artifactId>
+    <artifactId>PoytaSaha</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>LoginEasyBv1</name>
+    <name>PoytaSaha</name>
     <url>http://maven.apache.org</url>
 
     <properties>
