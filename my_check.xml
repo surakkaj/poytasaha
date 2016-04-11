@@ -8,15 +8,7 @@
    		<property name="max" value="60"/>
   	 	<property name="countEmpty" value="false"/>
 	</module>
-        <module name="CyclomaticComplexity">
-   		 <property name="max" value="3"/>
-	</module>
-        <module name="NestedIfDepth">
-    		<property name="max" value="1"/>
-	</module>
-	<module name="NestedForDepth">
-   		<property name="max" value="0"/>
-	</module>
+        
 
         <module name="LeftCurly"/>
         
