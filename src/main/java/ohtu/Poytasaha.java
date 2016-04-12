@@ -5,6 +5,7 @@
  */
 package ohtu;
 
+import ohtu.io.FileIO;
 import ohtu.io.IO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -19,12 +20,14 @@ import org.springframework.stereotype.Component;
 public class Poytasaha {
 
         private IO io;
+        private FileIO fio;
         @Autowired
         public Poytasaha(IO io){
             this.io = io;
         }
         public void run() {
         while (true) {
+            printInfo();
             String command = io.readLine(">");
 
             if (command.isEmpty()) {
@@ -32,13 +35,27 @@ public class Poytasaha {
             }
 
             if (command.equals("add")) {
-                io.print("ADD");
+                addReference();
             } else if (command.equals("delete")) {
                 io.print("DELETE");
             }
 
         }
     }
+        
+        private void printInfo(){
+            io.print("");
+            io.print("Enter 'add' to add a reference");            
+        }
+        
+        private void addReference(){
+            io.print("Give the path and name of the file in which to write:");
+            String path = io.readLine(">");
+            fio = new FileIO(path);
+            io.print("Give the reference you want to add");
+            String reference = io.readLine(">");
+            fio.writeToFile(reference); 
+        }
     
     /**
      * @param args the command line arguments
