@@ -9,10 +9,6 @@ package ohtu.domain;
  *
  * @author Daniel Viktor Isaac
  */
-public class Tag {
-    
-    private int id;
-    
-    
+public class Article extends Tag {
     
 }
