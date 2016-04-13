@@ -43,10 +43,11 @@ public class Poytasaha {
                 while (true) {
                     command = io.readLine(">")+ "\n";
                     memory.append(command);
-                    if (command.isEmpty()) {
+                    if (command.equals("\n")) {
                         command = "1";
                         break;
                     }
+                    io.print(memory.toString());
                 }
             } else if (command.equals("delete")) {
                 io.print("DELETE");
