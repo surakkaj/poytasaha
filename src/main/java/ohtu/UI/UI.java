@@ -51,15 +51,17 @@ public class UI {
     }
 
     private void chooseFile(String input) {
+        HashMap<String, String> info;
         input.replaceAll("\\s", "");
         if (input.equals("1")) {
-            createNewTagInfo();
+            info = createNewTagInfo();
         } else if (input.equals("2")) {
-            createNewTagInfo(giveFileName());
+            info = createNewTagInfo(giveFileName());
         } else {
             wrongInput();
             firstPhase();
         }
+        //TODO metodi joka ottaa syotteeksi hashmapin ja luo tagi olion.
     }
 
     private String giveFileName() {

@@ -5,6 +5,8 @@
  */
 package ohtu;
 
+import java.util.Scanner;
+import ohtu.UI.UI;
 import ohtu.io.FileIO;
 import ohtu.io.IO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,10 +69,14 @@ public class Poytasaha {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        ApplicationContext ctx = new FileSystemXmlApplicationContext("src/main/resources/spring-context.xml");
-        Poytasaha poytasaha = (Poytasaha) ctx.getBean("poytasaha");
-        poytasaha.run();
+//        // TODO code application logic here
+//        ApplicationContext ctx = new FileSystemXmlApplicationContext("src/main/resources/spring-context.xml");
+//        Poytasaha poytasaha = (Poytasaha) ctx.getBean("poytasaha");
+//        poytasaha.run();
+
+        Scanner lukija = new Scanner(System.in);
+        UI ui = new UI(lukija);
+        ui.run();
     }
 
 }
