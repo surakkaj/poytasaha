@@ -12,3 +12,4 @@ package ohtu.domain;
 public class Inproceedings extends Tag {
     
 }
+

@@ -10,5 +10,7 @@ package ohtu.domain;
  * @author Daniel Viktor Isaac
  */
 public class Article extends Tag {
-    
+
+
 }
+
