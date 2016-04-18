@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 /**
  *
  * @author Daniel Viktor Isaac
@@ -29,11 +30,11 @@ public abstract class Reference {
         this.citationKey = ck;
         this.tags = new HashMap<String, String>();
     }
-    public void addRequirements(String[] rf, String [] of){        
+
+    public void addRequirements(String[] rf, String[] of) {
         this.requiredFields = new HashSet<String>(Arrays.asList(rf));
         this.optionalFields = new HashSet<String>(Arrays.asList(of));
     }
-    
 
     public Boolean addTag(String tag, String content) {
         if (!validate(tag)) {
@@ -78,7 +79,8 @@ public abstract class Reference {
     public String getCk() {
         return this.citationKey;
     }
-    private void setFields(String[] ff, String[] of){
+
+    private void setFields(String[] ff, String[] of) {
         this.optionalFields = new HashSet<String>();
     }
 

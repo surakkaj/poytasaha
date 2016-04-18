@@ -19,7 +19,7 @@ public class Article extends Reference {
     }
     
     @Override
-    public String toBibtex(){
+    public String toBibtex() {
         return "@article " + super.toBibtex();
     }
     
