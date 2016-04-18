@@ -64,7 +64,7 @@ public class FileIO {
         try {
             reader = new BufferedReader(new FileReader(fileName));
         } catch (FileNotFoundException e) {
-            System.out.println("There was an error:" + e.getMessage());;
+            System.out.println("There was an error:" + e.getMessage());
         }
         try {
             StringBuilder sb = new StringBuilder();
