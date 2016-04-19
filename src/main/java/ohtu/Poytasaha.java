@@ -34,7 +34,6 @@ public class Poytasaha {
         StringBuilder memory = new StringBuilder("");
         while (true) {
             String command = io.readLine(">");
-            
 
             if (command.isEmpty()) {
                 break;
@@ -43,22 +42,26 @@ public class Poytasaha {
             if (command.equals("add")) {
                 io.print("Add lines to memory: empty breaks");
                 while (true) {
-                    command = io.readLine(">")+ "\n";
+                    command = io.readLine(">") + "\n";
                     memory.append(command);
-                    if (command.isEmpty()) {
+                    if (command.equals("\n")) {
                         command = "1";
                         break;
                     }
+                    io.print(memory.toString());
                 }
             } else if (command.equals("delete")) {
-                io.print("DELETE");
+                io.print("DELETED MEMORY");
+
+                memory.replace(0, memory.length() - 1, "");
+
             } else if (command.equals("load")) {
                 io.print("load");
             } else if (command.equals("save")) {
                 fio.print(memory.toString());
                 fio.print("SAVE");
-                memory.replace(0, memory.length()-1, "");
-            }else if (command.equals("sout")) {
+                memory.replace(0, memory.length() - 1, "");
+            } else if (command.equals("sout")) {
                 io.print(memory.toString());
             }
 

@@ -9,6 +9,19 @@ package ohtu.domain;
  *
  * @author Daniel Viktor Isaac
  */
-public class Inproceedings extends Tag {
-    
+public class Inproceedings extends Reference {
+
+    final String[] FORCE_FIELDS = {"author", "title", "booktitle", "year"};
+    final String[] OPTIONAL_FIELDS = {"editor", "pages", "organization", "publisher", "address", "month", "note", "key"};
+
+    public Inproceedings(String ck) {
+        super(ck);
+        super.addRequirements(FORCE_FIELDS, OPTIONAL_FIELDS);
+    }
+
+    @Override
+    public String toBibtex() {
+        return "@inproceedings " + super.toBibtex();
+    }
+
 }

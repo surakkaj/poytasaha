@@ -6,18 +6,19 @@
 package ohtu.data_access;
 
 import java.util.List;
-import ohtu.domain.Tag;
+import ohtu.domain.Reference;
 
 /**
  *
  * @author Daniel Viktor Isaac
  */
-public interface TagDao {
-    /** @return a list of all the Tags in this dao */
-    List<Tag> listAll();
-    /** @param tag tag to be added to this dao */
-    void add(Tag tag);
+public interface ReferenceDao {
     
-    void searchByContext();
-    void searchById();
+    /** @return a list of all the Tags in this dao */
+    List<Reference> listAll();
+    /** @param tag tag to be added to this dao */
+    void add(Reference tag);
+    
+    Reference searchByContext(String c);
+    Reference searchByCitationKey(String ck);
 }
