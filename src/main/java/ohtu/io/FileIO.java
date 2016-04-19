@@ -14,15 +14,19 @@ import org.springframework.stereotype.Component;
 public class FileIO {
 
     private String filePath;
-
+    
+    /**
+     * Creates a FileIO object with a connection to a file: "testi.txt"
+     * 
+     */
     public FileIO() {
         this.filePath = "testi.txt";
     }
 
     /**
-     * Prints text to currently chosen file.
+     * Prints text lines at the end of currently chosen file.
      * 
-     * @param text 
+     * @param text Strig line to be written
      */
     public void print(String text) {
         try {
@@ -46,12 +50,11 @@ public class FileIO {
     /**
      * Sets a new filepath
      * 
-     * @param filePath 
+     * @param filePath new filePath
      */
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
-
     
     /**
      * Writes the given string to the end of the given file.
@@ -62,15 +65,15 @@ public class FileIO {
      * @param text String to be written
      */
     public void write(String fileName, String text){
+        this.filePath = fileName;
         try {
-            FileWriter writer = new FileWriter(fileName, true);
+            FileWriter writer = new FileWriter(filePath, true);
             writer.write(text);
             writer.close();
         } catch (IOException e) {
             System.out.println("There was an error:" + e.getMessage());
         } 
-    }  
-    
+    }     
     
     /**
      * Writes the given string to the given file.
@@ -82,9 +85,9 @@ public class FileIO {
      * @param text String to be written
      */
     public void overwrite(String fileName, String text){
-
+        this.filePath = fileName;
         try {
-            FileWriter writer = new FileWriter(fileName, false);
+            FileWriter writer = new FileWriter(filePath, false);
             writer.write(text);
             writer.close();
         } catch (IOException e) {
