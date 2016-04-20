@@ -25,7 +25,7 @@ public class FileIOTest {
     @Test
     public void testPrint() {
         fio.setFilePath("testausta2.txt");
-        fio.write(fio.getFilePath(), "koira kissa hiiri");
+        fio.print("koira kissa hiiri");
         String result = fio.readFile(fio.getFilePath());
         Assert.assertTrue(result.contains("hiiri"));
         File f = new File(fio.getFilePath());
