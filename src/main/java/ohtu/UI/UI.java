@@ -158,9 +158,15 @@ public class UI {
     }
 
     private void askAndRecord(HashMap<String, String> result, List<String> required, List<String> optional) {
+        System.out.println("");
+        System.out.println("Fill required fields: ");
+        
         for (String req : required) {
             askForRequiredInput(req, result);
         }
+        System.out.println("");
+        System.out.println("Fill optional fields: ");
+        System.out.println("(you can skip field by pressing enter and keeping it empty)");
 
         for (String opt : optional) {
             askForOptionalInput(opt, result);
