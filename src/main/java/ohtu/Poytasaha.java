@@ -81,7 +81,10 @@ public class Poytasaha {
         Scanner lukija = new Scanner(System.in);
         FileReferenceDao dao = new FileReferenceDao();
         UI ui = new UI(lukija, dao);
+       
         ui.run();
+        
+        
     }
 
 }

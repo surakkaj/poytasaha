@@ -4,3 +4,32 @@ karva
 
 
 SAVE
+@article { akk33
+}
+
+@article { moi,
+  volume = {rgrw},
+  number = {we},
+  journal = {asd},
+  year = {rg},
+  author = {mii},
+  title = {kii}
+}
+
+@inproceedings { fwg,
+  editor = {qee},
+  year = {wegwg},
+  author = {wgw},
+  title = {qef},
+  booktitle = {wgwg}
+}
+
+@inproceedings { afa,
+  editor = {wegwg},
+  pages = {wwg},
+  year = {wegwg},
+  author = {rg},
+  title = {wwegw},
+  booktitle = {wgwg}
+}
+

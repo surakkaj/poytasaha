@@ -12,6 +12,7 @@ import ohtu.domain.Article;
 import ohtu.domain.Book;
 import ohtu.domain.Inproceedings;
 import ohtu.domain.Reference;
+import ohtu.io.FileIO;
 
 /**
  *
@@ -20,9 +21,11 @@ import ohtu.domain.Reference;
 public class FileReferenceDao implements ReferenceDao {
 
     private List<Reference> list;
+    private FileIO io;
 
     public FileReferenceDao() {
         this.list = new ArrayList<Reference>();
+        this.io = new FileIO();
     }
 
     @Override
@@ -41,10 +44,11 @@ public class FileReferenceDao implements ReferenceDao {
         if (map.containsKey("book")) {
             ref = new Book(map.get("book"));
         } else if (map.containsKey("article")) {
-            ref = new Article(map.get("book"));
+            ref = new Article(map.get("article"));
         } else if (map.containsKey("inproceedings")) {
-            ref = new Inproceedings(map.get("book"));
+            ref = new Inproceedings(map.get("inproceedings"));
         }
+        ref.addFromHashMap(map);
         this.add(ref);
     }
 
@@ -70,6 +74,10 @@ public class FileReferenceDao implements ReferenceDao {
             sb.append("\n");
         }
         return sb.toString();
+    }
+    
+    public void save(String filePath) {
+        this.io.write(filePath, this.toBibtex());
     }
 
 }

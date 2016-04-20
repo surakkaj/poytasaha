@@ -20,17 +20,20 @@ public class UI {
 
     private Scanner reader;
     private FileReferenceDao dao;
+    private boolean onSwitch;
 
     public UI(Scanner reader, FileReferenceDao dao) {
         this.reader = reader;
         this.dao = dao;
+        this.onSwitch = true;
     }
 
     /**
      * Execute text ui.
      */
-    public void run() {
+    public boolean run() {
         firstPhase();
+        return onSwitch;
     }
 
     private void firstPhase() {
@@ -65,7 +68,8 @@ public class UI {
             firstPhase();
         }
         dao.add(info);
-        //TODO metodi joka ottaa syotteeksi hashmapin ja luo tagi olion.
+        dao.save(info.get("filename"));
+        //askIfContinue();
     }
 
     private String giveFileName() {
@@ -203,5 +207,26 @@ public class UI {
         if (!input.equals("")) {
             result.put(opt, input);
         }
+    }
+
+    private void askIfContinue() {
+        System.out.println("");
+        System.out.println("(1) Add next tag");
+        System.out.println("(2) Make file");
+        turnSwitch(reader.nextLine());
+    }
+    
+    private void turnSwitch(String p) {
+        if (p.equals("1")) {
+            this.onSwitch = true;
+        } else if (p.equals(p.equals("2"))) {
+            this.onSwitch = false;
+        } else {
+            askIfContinue();
+        }
+    }
+
+    public boolean getContinue() {
+        return this.onSwitch;
     }
 }
