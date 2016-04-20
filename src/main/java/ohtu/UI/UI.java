@@ -160,7 +160,7 @@ public class UI {
     private void askAndRecord(HashMap<String, String> result, List<String> required, List<String> optional) {
         System.out.println("");
         System.out.println("Fill required fields: ");
-        
+
         for (String req : required) {
             askForRequiredInput(req, result);
         }
@@ -179,8 +179,9 @@ public class UI {
         input.replaceAll("\\s", "");
         if (input.equals("")) {
             askForRequiredInput(req, result);
+        } else {
+            result.put(req, input);
         }
-        result.put(req, input);
     }
 
     private void askForOptionalInput(String opt, HashMap<String, String> result) {
