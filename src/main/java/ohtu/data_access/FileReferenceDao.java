@@ -6,7 +6,11 @@
 package ohtu.data_access;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import ohtu.domain.Article;
+import ohtu.domain.Book;
+import ohtu.domain.Inproceedings;
 import ohtu.domain.Reference;
 
 /**
@@ -32,6 +36,19 @@ public class FileReferenceDao implements ReferenceDao {
     }
 
     @Override
+    public void add(HashMap<String, String> map) {
+        Reference ref = null;
+        if (map.containsKey("book")) {
+            ref = new Book(map.get("book"));
+        } else if (map.containsKey("article")) {
+            ref = new Article(map.get("book"));
+        } else if (map.containsKey("inproceedings")) {
+            ref = new Inproceedings(map.get("book"));
+        }
+        this.add(ref);
+    }
+
+    @Override
     public Reference searchByContext(String c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -45,8 +62,8 @@ public class FileReferenceDao implements ReferenceDao {
         }
         return null;
     }
-    
-    public String toBibtex(){
+
+    public String toBibtex() {
         StringBuilder sb = new StringBuilder("");
         for (Reference r : this.list) {
             sb.append(r.toBibtex());

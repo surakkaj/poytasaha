@@ -5,9 +5,9 @@ import java.util.Scanner;
 import org.springframework.stereotype.Component;
 @Component
 public class ConsoleIO implements IO {
-    private Scanner scanner = new Scanner(System.in);
-    public ConsoleIO(){
-        this.scanner = new Scanner(System.in);
+    private Scanner scanner;
+    public ConsoleIO(Scanner scanner){
+        this.scanner = scanner;
     }
     public void print(String toPrint) {
         System.out.println(toPrint);

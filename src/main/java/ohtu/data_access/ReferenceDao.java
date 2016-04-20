@@ -5,6 +5,7 @@
  */
 package ohtu.data_access;
 
+import java.util.HashMap;
 import java.util.List;
 import ohtu.domain.Reference;
 
@@ -18,6 +19,7 @@ public interface ReferenceDao {
     List<Reference> listAll();
     /** @param tag tag to be added to this dao */
     void add(Reference tag);
+    void add(HashMap<String, String> map);
     
     Reference searchByContext(String c);
     Reference searchByCitationKey(String ck);

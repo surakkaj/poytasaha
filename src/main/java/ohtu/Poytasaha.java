@@ -7,6 +7,7 @@ package ohtu;
 
 import java.util.Scanner;
 import ohtu.UI.UI;
+import ohtu.data_access.FileReferenceDao;
 import ohtu.io.FileIO;
 import ohtu.io.IO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +79,8 @@ public class Poytasaha {
 //        poytasaha.run();
 
         Scanner lukija = new Scanner(System.in);
-        UI ui = new UI(lukija);
+        FileReferenceDao dao = new FileReferenceDao();
+        UI ui = new UI(lukija, dao);
         ui.run();
     }
 

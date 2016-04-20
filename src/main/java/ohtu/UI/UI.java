@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import ohtu.data_access.FileReferenceDao;
 
 /**
  *
@@ -18,9 +19,11 @@ import java.util.Scanner;
 public class UI {
 
     private Scanner reader;
+    private FileReferenceDao dao;
 
-    public UI(Scanner reader) {
+    public UI(Scanner reader, FileReferenceDao dao) {
         this.reader = reader;
+        this.dao = dao;
     }
 
     /**
@@ -51,7 +54,7 @@ public class UI {
     }
 
     private void chooseFile(String input) {
-        HashMap<String, String> info;
+        HashMap<String, String> info = null;
         input.replaceAll("\\s", "");
         if (input.equals("1")) {
             info = createNewTagInfo();
@@ -61,7 +64,7 @@ public class UI {
             wrongInput();
             firstPhase();
         }
-        
+        dao.add(info);
         //TODO metodi joka ottaa syotteeksi hashmapin ja luo tagi olion.
     }
 
@@ -97,13 +100,21 @@ public class UI {
     private HashMap<String, String> askInfo(String format) {
         HashMap<String, String> result = new HashMap<String, String>();
         if (format.equals("article")) {
+            askCitationKey(format, result);
             askArticle(result);
         } else if (format.equals("inproceedings")) {
+            askCitationKey(format, result);
             askInbroceedings(result);
         } else if (format.equals("book")) {
+            askCitationKey(format, result);
             askBook(result);
         }
         return result;
+    }
+
+    private void askCitationKey(String type, HashMap<String, String> result) {
+        System.out.println("Give citation key:");
+        result.put(type, reader.nextLine());
     }
 
     private String chooseFormat(String input) {
