@@ -28,6 +28,8 @@ public class TestReferenceDao {
         r.addTag("auffthor", "Kasdsdri sorsa");
         dao.add(r);
         System.out.println(dao.toBibtex());
+        System.out.println("viii");
+        System.out.println(r.toString());
     }
     
 }
