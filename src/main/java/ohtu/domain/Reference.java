@@ -36,6 +36,15 @@ public abstract class Reference {
         this.optionalFields = new HashSet<String>(Arrays.asList(of));
     }
 
+    public boolean addFromHashMap(HashMap<String, String> map) {
+        for (String req : map.keySet()) {
+            if (!this.addTag(req, map.get(req))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public Boolean addTag(String tag, String content) {
         if (!validate(tag)) {
             return false;

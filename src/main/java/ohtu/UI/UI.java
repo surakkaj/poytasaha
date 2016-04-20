@@ -61,6 +61,7 @@ public class UI {
             wrongInput();
             firstPhase();
         }
+        
         //TODO metodi joka ottaa syotteeksi hashmapin ja luo tagi olion.
     }
 
