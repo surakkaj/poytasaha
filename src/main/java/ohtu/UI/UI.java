@@ -39,16 +39,29 @@ public class UI {
     private void firstPhase() {
         startingInstructions();
         String input = reader.nextLine();
-        chooseFile(input);
+        while (fileIsRightFormat(input)) {
+            wrongFileType();
+            input = reader.nextLine();
+        }
+        while (this.onSwitch) {
+            askWhatUserWantsToDo();
+        }
+        dao.save(input);
+    }
+
+    private boolean fileIsRightFormat(String input) {
+        return input.endsWith(".txt") || input.endsWith(".bib");
+    }
+
+    private void wrongFileType() {
+        System.out.println("File didn't end in .txt or .bib");
     }
 
     private void startingInstructions() {
         //Kirjoitin souteilla että on helpompi lukuisempi
-        System.out.println("Choose one number from below.");
+        System.out.println("Give file to write into. If file does not exist empty one will be created.");
+        System.out.println("File must be in .txt or .bib format.");
         System.out.println("");
-        System.out.println("(1) New file");
-        System.out.println("(2) Choose file");
-
     }
 
     private void wrongInput() {
@@ -56,20 +69,34 @@ public class UI {
         System.out.println("");
     }
 
-    private void chooseFile(String input) {
-        HashMap<String, String> info = null;
+    private void askWhatUserWantsToDo() {
+        instructUserForOptions();
+        String input = reader.nextLine();
         input.replaceAll("\\s", "");
         if (input.equals("1")) {
-            info = createNewTagInfo();
+            dao.add(createNewTagInfo());
         } else if (input.equals("2")) {
-            info = createNewTagInfo(giveFileName());
+            //TODO List of existing rreferences in file
+        } else if (input.equals("3")) {
+            //TODO Choose existing reference to modify
+        } else if (input.equals("4")) {
+            //TODO Choose existing reference to remove
+        } else if (input.equals("5")) {
+            this.onSwitch = false;
         } else {
             wrongInput();
-            firstPhase();
+            askWhatUserWantsToDo();
         }
-        dao.add(info);
-        dao.save(info.get("filename"));
-        //askIfContinue();
+    }
+
+    private void instructUserForOptions() {
+        System.out.println("");
+        System.out.println("Choose one number from below");
+        System.out.println("(1) Create new reference");
+        System.out.println("(2) List all existing references in file");
+        System.out.println("(3) Choose existing reference to modify");
+        System.out.println("(4) Choose existing reference to remove");
+        System.out.println("(5) Save and quit");
     }
 
     private String giveFileName() {
@@ -78,16 +105,10 @@ public class UI {
     }
 
     private HashMap<String, String> createNewTagInfo() {
-        return askInfo(secondPhase());
+        return askInfo(secondTagPhase());
     }
 
-    private HashMap<String, String> createNewTagInfo(String fileName) {
-        HashMap<String, String> result = createNewTagInfo();
-        result.put("filename", fileName);
-        return result;
-    }
-
-    private String secondPhase() {
+    private String secondTagPhase() {
         formatInfo();
         String input = reader.nextLine();
         return chooseFormat(input);
@@ -131,7 +152,7 @@ public class UI {
             return "book";
         } else {
             wrongInput();
-            return secondPhase();
+            return secondTagPhase();
         }
     }
 
@@ -215,7 +236,7 @@ public class UI {
         System.out.println("(2) Make file");
         turnSwitch(reader.nextLine());
     }
-    
+
     private void turnSwitch(String p) {
         if (p.equals("1")) {
             this.onSwitch = true;
