@@ -1,11 +1,3 @@
-karva
-karva
-karva
-
-
-SAVE
-@article { akk33
-}
 
 @article { moi,
   volume = {rgrw},

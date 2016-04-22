@@ -1,25 +1,29 @@
-karva
-karva
-karva
+@article { akk33
+}
 
+@article { moi,
+  volume = {rgrw},
+  number = {we},
+  journal = {asd},
+  year = {rg},
+  author = {mii},
+  title = {kii}
+}
 
-SAVE
-article
-kirjailija
-kuvailija
-save
+@inproceedings { fwg,
+  editor = {qee},
+  year = {wegwg},
+  author = {wgw},
+  title = {qef},
+  booktitle = {wgwg}
+}
 
+@inproceedings { afa,
+  editor = {wegwg},
+  pages = {wwg},
+  year = {wegwg},
+  author = {rg},
+  title = {wwegw},
+  booktitle = {wgwg}
+}
 
-SAVE
-
-
-SAVE
-
-
-SAVE
-
-SAVE
-mit
-
-
-SAVE

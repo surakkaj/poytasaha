@@ -46,6 +46,9 @@ public abstract class Reference {
     }
 
     public Boolean addTag(String tag, String content) {
+        if (tag == null || content == null) {
+            return false;
+        }
         if (!validate(tag)) {
             return false;
         }
