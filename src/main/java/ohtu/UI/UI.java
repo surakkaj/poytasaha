@@ -6,26 +6,68 @@
 package ohtu.UI;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import ohtu.data_access.FileReferenceDao;
+import ohtu.domain.Reference;
 
 /**
  *
  * @author melchan
  */
 public class UI {
-
+    
     private Scanner reader;
     private FileReferenceDao dao;
     private boolean onSwitch;
-
+    private Map<String, ArrayList<ArrayList<String>>> lists;
+    
     public UI(Scanner reader, FileReferenceDao dao) {
         this.reader = reader;
         this.dao = dao;
         this.onSwitch = true;
+        createMapLists();
+        
+    }
+    
+    private void createMapLists() {
+        this.lists = new HashMap<String, ArrayList<ArrayList<String>>>();
+        String[] requiredArticle = {"author", "title", "journal", "year", "volume"};
+        String[] optionalArticle = {"number", "pages", "month", "note", "key"};
+        
+        String[] requiredInproceedings = {"author", "title", "booktitle", "year"};
+        String[] optionalInproceedings = {"editor", "volume/number", "series", "pages", "address", "month", "organization", "publisher"};
+        
+        String[] requiredBook = {"author/editor", "title", "publisher", "year"};
+        String[] optionalBook = {"volume/editor", "series", "address", "edition", "month", "note", "key"};
+        
+        ArrayList<ArrayList<String>> article = new ArrayList<ArrayList<String>>();
+        
+        ArrayList<String> required = new ArrayList<String>(Arrays.asList(requiredArticle));
+        ArrayList<String> optional = new ArrayList<String>(Arrays.asList(optionalArticle));
+        article.add(required);
+        article.add(optional);
+        
+        lists.put("article", article);
+        ArrayList<ArrayList<String>> inproceedings = new ArrayList<ArrayList<String>>();
+        required = new ArrayList<String>(Arrays.asList(requiredInproceedings));
+        optional = new ArrayList<String>(Arrays.asList(optionalInproceedings));
+        inproceedings.add(required);
+        inproceedings.add(optional);
+        
+        lists.put("inproceedings", inproceedings);
+        ArrayList<ArrayList<String>> book = new ArrayList<ArrayList<String>>();
+        
+        required = new ArrayList<String>(Arrays.asList(requiredBook));
+        optional = new ArrayList<String>(Arrays.asList(optionalBook));
+        book.add(required);
+        book.add(optional);
+        
+        lists.put("book", book);
+        
     }
 
     /**
@@ -35,7 +77,7 @@ public class UI {
         firstPhase();
         return onSwitch;
     }
-
+    
     private void firstPhase() {
         startingInstructions();
         String input = reader.nextLine();
@@ -48,39 +90,40 @@ public class UI {
         }
         dao.save(input);
     }
-
+    
     private boolean fileIsRightFormat(String input) {
-        return input.endsWith(".txt") || input.endsWith(".bib");
+        return !(input.endsWith(".txt") || input.endsWith(".bib"));
     }
-
+    
     private void wrongFileType() {
         System.out.println("File didn't end in .txt or .bib");
     }
-
+    
     private void startingInstructions() {
         //Kirjoitin souteilla että on helpompi lukuisempi
         System.out.println("Give file to write into. If file does not exist empty one will be created.");
         System.out.println("File must be in .txt or .bib format.");
         System.out.println("");
     }
-
+    
     private void wrongInput() {
         System.out.println("Wrong input");
         System.out.println("");
     }
-
+    
     private void askWhatUserWantsToDo() {
         instructUserForOptions();
         String input = reader.nextLine();
         input.replaceAll("\\s", "");
         if (input.equals("1")) {
-            dao.add(createNewTagInfo());
+            HashMap<String, String> info = createNewTagInfo();
+            dao.add(info);
         } else if (input.equals("2")) {
-            //TODO List of existing rreferences in file
+            listContentOfFile();
         } else if (input.equals("3")) {
-            //TODO Choose existing reference to modify
+            lookUpExistingToModify();
         } else if (input.equals("4")) {
-            //TODO Choose existing reference to remove
+            removeExistingReference();
         } else if (input.equals("5")) {
             this.onSwitch = false;
         } else {
@@ -88,7 +131,7 @@ public class UI {
             askWhatUserWantsToDo();
         }
     }
-
+    
     private void instructUserForOptions() {
         System.out.println("");
         System.out.println("Choose one number from below");
@@ -98,22 +141,81 @@ public class UI {
         System.out.println("(4) Choose existing reference to remove");
         System.out.println("(5) Save and quit");
     }
-
+    
+    private void lookUpExistingToModify() {
+        System.out.println("");
+        System.out.println("Give citation key of the reference you want to modify");
+        System.out.println("");
+        String input = reader.nextLine();
+        Reference ref = dao.searchByCitationKey(input);
+        System.out.println("");
+        System.out.println(ref.toBibtex());
+        System.out.println("");
+        modifyReference(ref);
+    }
+    
+    private void modifyReference(Reference ref) {
+        HashMap<String, String> map = (HashMap) ref.getTags();
+        ArrayList<ArrayList<String>> into = lists.get(ref.getType());
+        askAndRecordToModify(map, into.get(0), into.get(1));
+    }
+    
+    private void askAndRecordToModify(HashMap<String, String> result, List<String> required, List<String> optional) {
+        System.out.println("");
+        System.out.println("Fill required fields: ");
+        
+        for (String req : required) {
+            String current = result.get(req);
+            
+            System.out.println("current " + req + " is " + current);
+            askForRequiredInput(req, result);
+        }
+        System.out.println("");
+        System.out.println("Fill optional fields: ");
+        System.out.println("(you can skip field by pressing enter and keeping it empty)");
+        
+        for (String opt : optional) {
+            String current = "";
+            if (result.containsKey(opt)) {
+                current = result.get(opt);
+            }
+            System.out.println("current " + opt + " is " + current);
+            askForOptionalInput(opt, result);
+        }
+    }
+    
+    private void listContentOfFile() {
+        System.out.println("");
+        System.out.println("Listing content of file");
+        System.out.println(dao.toBibtex());
+    }
+    
+    private void removeExistingReference() {
+        System.out.println("");
+        System.out.println("give citationkey to remove ");
+        System.out.println("");
+        String input = reader.nextLine();
+        Reference ref = dao.searchByCitationKey(input);
+        if (ref != null) {
+            dao.listAll().remove(ref);
+        }
+    }
+    
     private String giveFileName() {
         System.out.println("Give filename:");
         return reader.nextLine();
     }
-
+    
     private HashMap<String, String> createNewTagInfo() {
         return askInfo(secondTagPhase());
     }
-
+    
     private String secondTagPhase() {
         formatInfo();
         String input = reader.nextLine();
         return chooseFormat(input);
     }
-
+    
     private void formatInfo() {
         System.out.println("Choose one number from below.");
         System.out.println("");
@@ -121,27 +223,20 @@ public class UI {
         System.out.println("(2) Inproceedings");
         System.out.println("(3) book");
     }
-
+    
     private HashMap<String, String> askInfo(String format) {
         HashMap<String, String> result = new HashMap<String, String>();
-        if (format.equals("article")) {
-            askCitationKey(format, result);
-            askArticle(result);
-        } else if (format.equals("inproceedings")) {
-            askCitationKey(format, result);
-            askInbroceedings(result);
-        } else if (format.equals("book")) {
-            askCitationKey(format, result);
-            askBook(result);
-        }
+        ArrayList<ArrayList<String>> into = lists.get(format);
+        askCitationKey(format, result);
+        askAndRecord(result, into.get(0), into.get(1));
         return result;
     }
-
+    
     private void askCitationKey(String type, HashMap<String, String> result) {
         System.out.println("Give citation key:");
         result.put(type, reader.nextLine());
     }
-
+    
     private String chooseFormat(String input) {
         input.replaceAll("\\s", "");
         if (input.equals("1")) {
@@ -155,61 +250,23 @@ public class UI {
             return secondTagPhase();
         }
     }
-
-    private ArrayList<String> addToArrayList(String[] array) {
-        ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < array.length; i++) {
-            list.add(array[i]);
-        }
-        return list;
-    }
-
-    private void askArticle(HashMap<String, String> result) {
-        String[] requiredList = {"author", "title", "journal", "year", "volume"};
-        ArrayList<String> required = addToArrayList(requiredList);
-
-        String[] optionalList = {"number", "pages", "month", "note", "key"};
-        ArrayList<String> optional = addToArrayList(optionalList);
-
-        askAndRecord(result, required, optional);
-    }
-
-    private void askInbroceedings(HashMap<String, String> result) {
-        String[] requiredList = {"author", "title", "booktitle", "year"};
-        ArrayList<String> required = addToArrayList(requiredList);
-
-        String[] optionalList = {"editor", "volume/number", "series", "pages", "address", "month", "organization", "publisher"};
-        ArrayList<String> optional = addToArrayList(optionalList);
-
-        askAndRecord(result, required, optional);
-    }
-
-    private void askBook(HashMap<String, String> result) {
-        String[] requiredList = {"author/editor", "title", "publisher", "year"};
-        ArrayList<String> required = addToArrayList(requiredList);
-
-        String[] optionalList = {"volume/editor", "series", "address", "edition", "month", "note", "key"};
-        ArrayList<String> optional = addToArrayList(optionalList);
-
-        askAndRecord(result, required, optional);
-    }
-
+    
     private void askAndRecord(HashMap<String, String> result, List<String> required, List<String> optional) {
         System.out.println("");
         System.out.println("Fill required fields: ");
-
+        
         for (String req : required) {
             askForRequiredInput(req, result);
         }
         System.out.println("");
         System.out.println("Fill optional fields: ");
         System.out.println("(you can skip field by pressing enter and keeping it empty)");
-
+        
         for (String opt : optional) {
             askForOptionalInput(opt, result);
         }
     }
-
+    
     private void askForRequiredInput(String req, HashMap<String, String> result) {
         System.out.println("Give required input " + req + ":");
         String input = reader.nextLine();
@@ -220,7 +277,7 @@ public class UI {
             result.put(req, input);
         }
     }
-
+    
     private void askForOptionalInput(String opt, HashMap<String, String> result) {
         System.out.println("Give required input " + opt + ":");
         String input = reader.nextLine();
@@ -229,14 +286,14 @@ public class UI {
             result.put(opt, input);
         }
     }
-
+    
     private void askIfContinue() {
         System.out.println("");
         System.out.println("(1) Add next tag");
         System.out.println("(2) Make file");
         turnSwitch(reader.nextLine());
     }
-
+    
     private void turnSwitch(String p) {
         if (p.equals("1")) {
             this.onSwitch = true;
@@ -246,7 +303,7 @@ public class UI {
             askIfContinue();
         }
     }
-
+    
     public boolean getContinue() {
         return this.onSwitch;
     }

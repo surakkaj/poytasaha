@@ -37,6 +37,8 @@ public abstract class Reference {
     }
     
     public boolean addFromHashMap(HashMap<String, String> map) {
+        System.out.println("map is null = " + map == null);
+        System.out.println("mapkeyset is null = " + map.keySet() == null);
         for(String req : map.keySet()){
             this.addTag(req, map.get(req));
             
@@ -92,5 +94,11 @@ public abstract class Reference {
     private void setFields(String[] ff, String[] of) {
         this.optionalFields = new HashSet<String>();
     }
+    
+    public Map<String, String> getTags() {
+        return tags;
+    }
+    
+    abstract public String getType();
 
 }

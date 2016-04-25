@@ -22,5 +22,10 @@ public class Article extends Reference {
     public String toBibtex() {
         return "@article " + super.toBibtex();
     }
+
+    @Override
+    public String getType() {
+        return "article";
+    }
     
 }

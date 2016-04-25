@@ -23,5 +23,10 @@ public class Inproceedings extends Reference {
     public String toBibtex() {
         return "@inproceedings " + super.toBibtex();
     }
+    
+    @Override
+    public String getType() {
+        return "inproceedings";
+    }
 
 }

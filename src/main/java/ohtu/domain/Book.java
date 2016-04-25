@@ -24,6 +24,11 @@ public class Book extends Reference {
     public String toBibtex() {
         return "@book " + super.toBibtex();
     }
+    
+    @Override
+    public String getType() {
+        return "book";
+    }
 
 }
 
