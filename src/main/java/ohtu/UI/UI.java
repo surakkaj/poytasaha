@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.Scanner;
 import ohtu.data_access.FileReferenceDao;
 import ohtu.domain.Reference;
+import ohtu.io.ConsoleIO;
+import ohtu.io.IO;
 
 /**
  *
@@ -20,13 +22,13 @@ import ohtu.domain.Reference;
  */
 public class UI {
     
-    private Scanner reader;
+    private IO io;
     private FileReferenceDao dao;
     private boolean onSwitch;
     private Map<String, ArrayList<ArrayList<String>>> lists;
     
-    public UI(Scanner reader, FileReferenceDao dao) {
-        this.reader = reader;
+    public UI(IO io, FileReferenceDao dao) {
+        this.io =io;
         this.dao = dao;
         this.onSwitch = true;
         createMapLists();
@@ -44,28 +46,25 @@ public class UI {
         String[] requiredBook = {"author/editor", "title", "publisher", "year"};
         String[] optionalBook = {"volume/editor", "series", "address", "edition", "month", "note", "key"};
         
-        ArrayList<ArrayList<String>> article = new ArrayList<ArrayList<String>>();
-        
+        ArrayList<ArrayList<String>> article = new ArrayList<ArrayList<String>>();        
         ArrayList<String> required = new ArrayList<String>(Arrays.asList(requiredArticle));
         ArrayList<String> optional = new ArrayList<String>(Arrays.asList(optionalArticle));
         article.add(required);
-        article.add(optional);
-        
+        article.add(optional);        
         lists.put("article", article);
+        
         ArrayList<ArrayList<String>> inproceedings = new ArrayList<ArrayList<String>>();
         required = new ArrayList<String>(Arrays.asList(requiredInproceedings));
         optional = new ArrayList<String>(Arrays.asList(optionalInproceedings));
         inproceedings.add(required);
-        inproceedings.add(optional);
-        
+        inproceedings.add(optional);        
         lists.put("inproceedings", inproceedings);
-        ArrayList<ArrayList<String>> book = new ArrayList<ArrayList<String>>();
         
+        ArrayList<ArrayList<String>> book = new ArrayList<ArrayList<String>>();        
         required = new ArrayList<String>(Arrays.asList(requiredBook));
         optional = new ArrayList<String>(Arrays.asList(optionalBook));
         book.add(required);
-        book.add(optional);
-        
+        book.add(optional);        
         lists.put("book", book);
         
     }
@@ -80,10 +79,10 @@ public class UI {
     
     private void firstPhase() {
         startingInstructions();
-        String input = reader.nextLine();
+        String input = io.readLine(">");
         while (fileIsRightFormat(input)) {
             wrongFileType();
-            input = reader.nextLine();
+            input = io.readLine(">");
         }
         while (this.onSwitch) {
             askWhatUserWantsToDo();
@@ -113,7 +112,7 @@ public class UI {
     
     private void askWhatUserWantsToDo() {
         instructUserForOptions();
-        String input = reader.nextLine();
+        String input = io.readLine(">");
         input.replaceAll("\\s", "");
         if (input.equals("1")) {
             HashMap<String, String> info = createNewTagInfo();
@@ -146,7 +145,7 @@ public class UI {
         System.out.println("");
         System.out.println("Give citation key of the reference you want to modify");
         System.out.println("");
-        String input = reader.nextLine();
+        String input = io.readLine(">");
         Reference ref = dao.searchByCitationKey(input);
         System.out.println("");
         System.out.println(ref.toBibtex());
@@ -194,7 +193,7 @@ public class UI {
         System.out.println("");
         System.out.println("give citationkey to remove ");
         System.out.println("");
-        String input = reader.nextLine();
+        String input = io.readLine(">");
         Reference ref = dao.searchByCitationKey(input);
         if (ref != null) {
             dao.listAll().remove(ref);
@@ -203,7 +202,7 @@ public class UI {
     
     private String giveFileName() {
         System.out.println("Give filename:");
-        return reader.nextLine();
+        return io.readLine(">");
     }
     
     private HashMap<String, String> createNewTagInfo() {
@@ -212,7 +211,7 @@ public class UI {
     
     private String secondTagPhase() {
         formatInfo();
-        String input = reader.nextLine();
+        String input = io.readLine(">");
         return chooseFormat(input);
     }
     
@@ -221,7 +220,7 @@ public class UI {
         System.out.println("");
         System.out.println("(1) Article");
         System.out.println("(2) Inproceedings");
-        System.out.println("(3) book");
+        System.out.println("(3) Book");
     }
     
     private HashMap<String, String> askInfo(String format) {
@@ -234,7 +233,7 @@ public class UI {
     
     private void askCitationKey(String type, HashMap<String, String> result) {
         System.out.println("Give citation key:");
-        result.put(type, reader.nextLine());
+        result.put(type, io.readLine(">"));
     }
     
     private String chooseFormat(String input) {
@@ -269,7 +268,7 @@ public class UI {
     
     private void askForRequiredInput(String req, HashMap<String, String> result) {
         System.out.println("Give required input " + req + ":");
-        String input = reader.nextLine();
+        String input = io.readLine(">");
         input.replaceAll("\\s", "");
         if (input.equals("")) {
             askForRequiredInput(req, result);
@@ -279,8 +278,8 @@ public class UI {
     }
     
     private void askForOptionalInput(String opt, HashMap<String, String> result) {
-        System.out.println("Give required input " + opt + ":");
-        String input = reader.nextLine();
+        System.out.println("Give optional input " + opt + ":");
+        String input = io.readLine(">");
         input.replaceAll("\\s", "");
         if (!input.equals("")) {
             result.put(opt, input);
@@ -291,7 +290,7 @@ public class UI {
         System.out.println("");
         System.out.println("(1) Add next tag");
         System.out.println("(2) Make file");
-        turnSwitch(reader.nextLine());
+        turnSwitch(io.readLine(">"));
     }
     
     private void turnSwitch(String p) {
