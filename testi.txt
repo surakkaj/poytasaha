@@ -33,3 +33,11 @@ SAVE
   booktitle = {wgwg}
 }
 
+@article { 3,
+  volume = {2},
+  journal = {23},
+  year = {32},
+  author = {aleksis},
+  title = {joku}
+}
+

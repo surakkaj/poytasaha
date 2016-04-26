@@ -28,6 +28,7 @@ public class ArticleTest {
         assertEquals(true, article.addTag("author", "Aleksis Kivi"));
         assertEquals(true, article.addTag("year", "1850"));
         assertEquals(true, article.addTag("pages", "501"));
+        assertEquals(3, article.getTags().size());
     }
 
     @Test
@@ -42,6 +43,7 @@ public class ArticleTest {
     public void invalidTagIsNotAdded() {
         assertEquals(false, article.addTag("kirjailija", "Aleksis Kivi"));
         assertEquals(false, article.addTag("series", "3"));
+        assertEquals(0, article.getTags().size());
     }
 
     @Test
@@ -73,9 +75,9 @@ public class ArticleTest {
                 + "author:Aleksis Kivi\n"
                 + "title:Kullervo\n", article2.toString());
     }
-    
+
     @Test
-    public void returnsTypeCorrectly(){
+    public void returnsTypeCorrectly() {
         assertEquals("article", article.getType());
-    } 
+    }
 }

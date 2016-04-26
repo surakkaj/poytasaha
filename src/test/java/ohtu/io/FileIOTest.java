@@ -1,6 +1,7 @@
 package ohtu.io;
 
 import java.io.File;
+import java.io.IOException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -32,13 +33,6 @@ public class FileIOTest {
         f.delete();        
     }
     
-//    @Test
-//    public void errorInPrintMethod() {
-//        fio.setFilePath("tii");
-//        fio.print("tii");
-//        String result = fio.readFile(fio.getFilePath());
-//        Assert.assertTrue(result.contains("There was an error:"));
-//    }
 //
 //    @Test
 //    public void testGetFilePath() {

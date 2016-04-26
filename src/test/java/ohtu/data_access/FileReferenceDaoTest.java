@@ -87,4 +87,6 @@ public class FileReferenceDaoTest {
         list.add(map);
         assertEquals(true, list.listAll().contains(inproceedings));
     }
+
+
 }
