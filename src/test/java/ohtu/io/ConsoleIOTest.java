@@ -9,9 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Rule;
@@ -58,10 +56,10 @@ public class ConsoleIOTest {
         systemInMock.provideLines("2");
         assertEquals(2, consoleIO.readInt("1"));
     }
-    
+
     @Test
     public void printsCorrectly() {
         consoleIO.print("tidii");
-         assertEquals("tidii\n", outContent.toString());
+        assertEquals("tidii\n", outContent.toString());
     }
 }

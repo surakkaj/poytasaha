@@ -5,10 +5,7 @@
  */
 package ohtu.io;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,25 +14,25 @@ import static org.junit.Assert.*;
  * @author susisusi
  */
 public class StubIOTest {
-    
+
     StubIO stubIO;
-    
+
     @Before
     public void setUp() {
         stubIO = new StubIO("1");
     }
-    
+
     @Test
     public void printsCorrectly() {
         stubIO.print("tidii");
         assertEquals(1, stubIO.getPrints().size());
     }
-    
+
     @Test
     public void readsIntCorrectly() {
         assertEquals(1, stubIO.readInt("2"));
     }
-    
+
     @Test
     public void readLinesCorrectly() {
         assertEquals("1", stubIO.readLine("1"));
