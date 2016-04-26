@@ -12,7 +12,7 @@ package ohtu.domain;
 public class Inproceedings extends Reference {
 
     final String[] FORCE_FIELDS = {"author", "title", "booktitle", "year"};
-    final String[] OPTIONAL_FIELDS = {"editor", "pages", "organization", "publisher", "address", "month", "note", "key"};
+    final String[] OPTIONAL_FIELDS = {"editor", "volume", "series", "pages", "address", "month", "organization", "publisher", "note", "key"};
 
     public Inproceedings(String ck) {
         super(ck);

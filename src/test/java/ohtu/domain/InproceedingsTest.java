@@ -47,7 +47,7 @@ public class InproceedingsTest {
     @Test
     public void requirementsAreAddedCorrectly() {
         assertEquals(4, inproceedings.FORCE_FIELDS.length);
-        assertEquals(8, inproceedings.OPTIONAL_FIELDS.length);
+        assertEquals(10, inproceedings.OPTIONAL_FIELDS.length);
     }
 
     @Test

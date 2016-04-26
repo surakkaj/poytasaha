@@ -35,16 +35,20 @@ public class UI {
         
     }
     
+    //koodia pitää muokata, jos haluaa nuo vaihtoehdon sisältävät tägit
     private void createMapLists() {
         this.lists = new HashMap<String, ArrayList<ArrayList<String>>>();
-        String[] requiredArticle = {"author", "title", "journal", "year", "volume"};
-        String[] optionalArticle = {"number", "pages", "month", "note", "key"};
+        String[] requiredArticle = {"author", "title", "journal", "year"};
+        String[] optionalArticle = {"volume", "number", "pages", "month", "note", "key"};
         
         String[] requiredInproceedings = {"author", "title", "booktitle", "year"};
-        String[] optionalInproceedings = {"editor", "volume/number", "series", "pages", "address", "month", "organization", "publisher"};
+        String[] optionalInproceedings = {"editor", "volume", "series", "pages", "address", "month", "organization", "publisher", "note", "key"};
+//        String[] optionalInproceedings = {"editor", "volume/number", "series", "pages", "address", "month", "organization", "publisher", "note", "key"};
         
-        String[] requiredBook = {"author/editor", "title", "publisher", "year"};
-        String[] optionalBook = {"volume/editor", "series", "address", "edition", "month", "note", "key"};
+        String[] requiredBook = {"author", "title", "publisher", "year"};
+//        String[] requiredBook = {"author/editor", "title", "publisher", "year"};
+        String[] optionalBook = {"volume", "series", "address", "edition", "month", "note", "key"};
+//        String[] optionalBook = {"volume/number", "series", "address", "edition", "month", "note", "key"};
         
         ArrayList<ArrayList<String>> article = new ArrayList<ArrayList<String>>();        
         ArrayList<String> required = new ArrayList<String>(Arrays.asList(requiredArticle));
