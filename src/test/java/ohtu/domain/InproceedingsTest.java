@@ -59,8 +59,13 @@ public class InproceedingsTest {
         dao.add(inproceedings);
         assertEquals("@inproceedings { Test,\n"
                 + "  author = {Aleksis Kivi},\n"
-                 + "  title = {Kullervo},\n"
-                + "  publisher = {Otava}\n"              
+                + "  title = {Kullervo},\n"
+                + "  publisher = {Otava}\n"
                 + "}\n\n", dao.toBibtex());
+    }
+
+    @Test
+    public void returnsTypeCorrectly() {
+        assertEquals("inproceedings", inproceedings.getType());
     }
 }

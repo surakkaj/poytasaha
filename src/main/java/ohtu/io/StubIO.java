@@ -11,6 +11,7 @@ public class StubIO implements IO {
     public StubIO(String... values) {
         this.lines = values;
         prints = new ArrayList<String>();
+        this.i = 0;
     }
 
     public void print(String toPrint) {

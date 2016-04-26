@@ -31,6 +31,14 @@ public class FileIOTest {
         File f = new File(fio.getFilePath());
         f.delete();        
     }
+    
+//    @Test
+//    public void errorInPrintMethod() {
+//        fio.setFilePath("tii");
+//        fio.print("tii");
+//        String result = fio.readFile(fio.getFilePath());
+//        Assert.assertTrue(result.contains("There was an error:"));
+//    }
 //
 //    @Test
 //    public void testGetFilePath() {

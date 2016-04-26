@@ -59,18 +59,13 @@ public class BookTest {
         dao.add(book);
         assertEquals("@book { Kirjani,\n"
                 + "  edition = {3},\n"
-                + "  author = {Aleksis Kivi},\n"          
+                + "  author = {Aleksis Kivi},\n"
                 + "  title = {Kullervo}\n"
                 + "}\n\n", dao.toBibtex());
     }
 
-//    @Test
-//    public void toStringIsPrintedCorrectly() {
-//        Reference article2 = new Article("Hoi");
-//        article2.addTag("author", "Aleksis Kivi");
-//        article2.addTag("title", "Kullervo");
-//        assertEquals("Hoi:\n"
-//                + "author:Aleksis Kivi\n"
-//                + "title:Kullervo\n", article2.toString());
-//    }
+    @Test
+    public void returnsTypeCorrectly() {
+        assertEquals("book", book.getType());
+    }
 }

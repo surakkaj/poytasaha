@@ -35,14 +35,12 @@ public abstract class Reference {
         this.requiredFields = new HashSet<String>(Arrays.asList(rf));
         this.optionalFields = new HashSet<String>(Arrays.asList(of));
     }
-    
+
     public boolean addFromHashMap(HashMap<String, String> map) {
-        System.out.println("map is null = " + map == null);
-        System.out.println("mapkeyset is null = " + map.keySet() == null);
-        for(String req : map.keySet()){
+//        System.out.println("map is null = " + map == null);
+//        System.out.println("mapkeyset is null = " + map.keySet() == null);
+        for (String req : map.keySet()) {
             this.addTag(req, map.get(req));
-            
-            
         }
         return true;
     }
@@ -94,11 +92,11 @@ public abstract class Reference {
     private void setFields(String[] ff, String[] of) {
         this.optionalFields = new HashSet<String>();
     }
-    
+
     public Map<String, String> getTags() {
         return tags;
     }
-    
+
     abstract public String getType();
 
 }

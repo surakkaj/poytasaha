@@ -73,4 +73,9 @@ public class ArticleTest {
                 + "author:Aleksis Kivi\n"
                 + "title:Kullervo\n", article2.toString());
     }
+    
+    @Test
+    public void returnsTypeCorrectly(){
+        assertEquals("article", article.getType());
+    } 
 }
