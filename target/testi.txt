@@ -1,0 +1,9 @@
+@inproceedings { aegwegw,
+  volume = {qwe},
+  editor = {wqwgf},
+  year = {wgeg},
+  author = {wegwg},
+  title = {wegw},
+  booktitle = {gw}
+}
+

@@ -50,6 +50,9 @@ public class UI {
         String[] optionalBook = {"volume", "series", "address", "edition", "month", "note", "key"};
 //        String[] optionalBook = {"volume/number", "series", "address", "edition", "month", "note", "key"};
         
+        String[] requiredManual = {"title"};
+        String[] optionalManual = {"author", "organization", "address", "edition", "month", "year", "note", "key"};
+
         ArrayList<ArrayList<String>> article = new ArrayList<ArrayList<String>>();        
         ArrayList<String> required = new ArrayList<String>(Arrays.asList(requiredArticle));
         ArrayList<String> optional = new ArrayList<String>(Arrays.asList(optionalArticle));
@@ -70,6 +73,13 @@ public class UI {
         book.add(required);
         book.add(optional);        
         lists.put("book", book);
+        
+        ArrayList<ArrayList<String>> manual = new ArrayList<ArrayList<String>>();        
+        required = new ArrayList<String>(Arrays.asList(requiredManual));
+        optional = new ArrayList<String>(Arrays.asList(optionalManual));
+        book.add(required);
+        book.add(optional);
+        lists.put("manual", manual);
         
     }
 
@@ -225,6 +235,7 @@ public class UI {
         System.out.println("(1) Article");
         System.out.println("(2) Inproceedings");
         System.out.println("(3) Book");
+        System.out.println("(4) manual");
     }
     
     private HashMap<String, String> askInfo(String format) {
@@ -248,7 +259,9 @@ public class UI {
             return "inproceedings";
         } else if (input.equals("3")) {
             return "book";
-        } else {
+        } else if (input.equals("4")) {
+            return "manual";
+        }else {
             wrongInput();
             return secondTagPhase();
         }
