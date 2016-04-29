@@ -12,50 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FileIO {
-
-    private String filePath;
-    
-    /**
-     * Creates a FileIO object with a connection to a file: "testi.txt"
-     * 
-     */
-    public FileIO() {
-        this.filePath = "testi.txt";
-    }
-
-    /**
-     * Prints text lines at the end of currently chosen file.
-     * 
-     * @param text Strig line to be written
-     */
-    public void print(String text) {
-        try {
-            FileWriter writer = new FileWriter(filePath, true);
-            writer.write(text + "\n");
-            writer.close();
-        } catch (IOException e) {
-            System.out.println("There was an error:" + e.getMessage());
-        } 
-    }
-
-    /**
-     * Returns the current filepath
-     * 
-     * @return filepath
-     */
-    public String getFilePath() {
-        return filePath;
-    }
-
-    /**
-     * Sets a new filepath
-     * 
-     * @param filePath new filePath
-     */
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-    
+  
     /**
      * Writes the given string to the end of the given file.
      * 
@@ -65,36 +22,16 @@ public class FileIO {
      * @param text String to be written
      */
     public void write(String fileName, String text){
-        this.filePath = fileName;
+        
         try {
-            FileWriter writer = new FileWriter(filePath, true);
-            writer.write(text);
+            FileWriter writer = new FileWriter(fileName, true);
+            writer.write(this.replaceSpecialChars(text));
             writer.close();
         } catch (IOException e) {
             System.out.println("There was an error:" + e.getMessage());
         } 
-    }     
-    
-    /**
-     * Writes the given string to the given file.
-     * 
-     * Overwrites the existing content.
-     * If the file doesn't exist, it will be created.
-     * 
-     * @param fileName  
-     * @param text String to be written
-     */
-    public void overwrite(String fileName, String text){
-        this.filePath = fileName;
-        try {
-            FileWriter writer = new FileWriter(filePath, false);
-            writer.write(text);
-            writer.close();
-        } catch (IOException e) {
-            System.out.println("There was an error:" + e.getMessage());
-        } 
-    } 
-  
+    }      
+
     /**
      * Reads a textfile and returns its contents as a String.
      * 
@@ -114,7 +51,7 @@ public class FileIO {
             String line = reader.readLine();
             while(line != null){
                 sb.append(line);
-                sb.append(System.lineSeparator());   //comment/delete if not useful
+                sb.append(System.lineSeparator()); 
                 line = reader.readLine();
             }
             all = sb.toString();
@@ -122,7 +59,54 @@ public class FileIO {
         } catch (IOException e) {
             System.out.println("There was an error:" + e.getMessage());
         }
-        return all;
+        return replaceBibtexFormatChars(all);
     }
-
+    
+    /**
+     * Replaces some special characters to be more compatible with bibtex-format
+     * 
+     * @param text String original text
+     * @return String text where special characters have been replaced
+     */
+    public String replaceSpecialChars(String text){
+        String str = text;
+        str = str.replace("å","\\aa");
+        str = str.replace("Å","\\AA");        
+        str = str.replace("ä","{\\\"a}");
+        str = str.replace("Ä","{\\\"A}");
+        str = str.replace("ö","{\\\"o}");
+        str = str.replace("Ö","{\\\"O}");
+        str = str.replace("ü","{\\\"u}"); 
+        str = str.replace("Ü","{\\\"U}");
+        str = str.replace("ß","\\ss");
+        str = str.replace("æ","\\ae");
+        str = str.replace("Æ","\\AE");
+        str = str.replace("ø","\\o");
+        str = str.replace("Ø","\\O");
+        return str;        
+    }
+    
+    /**
+     * Replaces some special characters from bibtex compatible format to normal
+     * 
+     * @param text String in bibtex compatible format
+     * @return String normal text
+     */
+    public String replaceBibtexFormatChars(String text){
+        String str = text;
+        str = str.replace("\\aa","å");
+        str = str.replace("\\AA","Å");        
+        str = str.replace("{\\\"a}","ä");
+        str = str.replace("{\\\"A}","Ä");
+        str = str.replace("{\\\"o}","ö");
+        str = str.replace("{\\\"O}","Ö");
+        str = str.replace("{\\\"u}","ü"); 
+        str = str.replace("{\\\"U}","Ü");
+        str = str.replace("\\ss","ß");
+        str = str.replace("\\ae","æ");
+        str = str.replace("\\AE","Æ");
+        str = str.replace("\\o","ø");
+        str = str.replace("\\O","Ø");
+        return str;        
+    } 
 }

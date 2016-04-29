@@ -25,51 +25,43 @@ public class FileIOTest {
     }
 
     @Test
-    public void testPrint() {
-        fio.setFilePath("testausta2.txt");
-        fio.print("koira kissa hiiri");
-        String result = fio.readFile(fio.getFilePath());
-        Assert.assertTrue(result.contains("hiiri"));
-        File f = new File(fio.getFilePath());
-        f.delete();
-    }
-
-//
-//    @Test
-//    public void testGetFilePath() {
-//    }
-//
-//    @Test
-//    public void testSetFilePath() {
-//    }
-    @Test
     public void testWrite() {
         String fName = "testausta.txt";
         fio.write(fName, "testaa testaa");
+        fio.write(fName, "kissa koira");
         String result = fio.readFile(fName);
         Assert.assertTrue(result.contains("testaa"));
+        Assert.assertTrue(result.contains("koira"));
         File f = new File(fName);
         f.delete();
     }
 
     @Test
-    public void testOverwrite() {
-        String fName = "testausta.txt";
-        fio.write(fName, "testaa testaa");
-        fio.overwrite(fName, "koira kissa hiiri");
-        String result = fio.readFile(fName);
-        Assert.assertTrue(!result.contains("testaa"));
-        Assert.assertTrue(result.contains("hiiri"));
-        File f = new File(fName);
-        f.delete();
-    }
+    public void testSpecialChars() {       
+        String text = "ÅåÄäÖö";
+        String result = fio.replaceSpecialChars(text);
+        String expected = "\\AA\\aa{\\\"A}{\\\"a}{\\\"O}{\\\"o}";
+        Assert.assertEquals(expected,result);
+        text = "Üüß";
+        result = fio.replaceSpecialChars(text);
+        expected = "{\\\"U}{\\\"u}\\ss";
+        Assert.assertEquals(expected,result);
+        text = "ÆæØø";
+        result = fio.replaceSpecialChars(text);
+        expected = "\\AE\\ae\\O\\o";
+        Assert.assertEquals(expected,result);        
+
+        Assert.assertEquals("ÅåÄäÖö", fio.replaceBibtexFormatChars("\\AA\\aa{\\\"A}{\\\"a}{\\\"O}{\\\"o}"));
+        Assert.assertEquals("Üüß", fio.replaceBibtexFormatChars("{\\\"U}{\\\"u}\\ss"));
+        Assert.assertEquals("ÆæØø", fio.replaceBibtexFormatChars("\\AE\\ae\\O\\o"));         
+    }    
 
     @Test
     public void testReadFile() {
         String fName = "testausta.txt";
         fio.write(fName, "testaa testaa");
         String result = fio.readFile(fName);
-        Assert.assertTrue(result.contains("testaa"));
+        Assert.assertTrue(result.contains("testaa testaa"));
         File f = new File(fName);
         f.delete();
     }
