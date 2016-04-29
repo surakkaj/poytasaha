@@ -12,6 +12,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FileIO {
+    
+    private String filePath;
+    
+    public FileIO(){
+        this.filePath = "";
+    }
   
     /**
      * Writes the given string to the end of the given file.
@@ -22,9 +28,9 @@ public class FileIO {
      * @param text String to be written
      */
     public void write(String fileName, String text){
-        
+        this.filePath = fileName;
         try {
-            FileWriter writer = new FileWriter(fileName, true);
+            FileWriter writer = new FileWriter(filePath, true);
             writer.write(this.replaceSpecialChars(text));
             writer.close();
         } catch (IOException e) {
@@ -39,10 +45,11 @@ public class FileIO {
      * @return  file's content as a String
      */
     public String readFile(String fileName) {
+        this.filePath = fileName;
         String all = "";
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new FileReader(fileName));
+            reader = new BufferedReader(new FileReader(filePath));
         } catch (FileNotFoundException e) {
             System.out.println("There was an error:" + e.getMessage());
         }
