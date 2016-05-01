@@ -11,8 +11,10 @@ import java.util.List;
 import ohtu.domain.Article;
 import ohtu.domain.Book;
 import ohtu.domain.Inproceedings;
+import ohtu.domain.Manual;
 import ohtu.domain.Reference;
 import ohtu.io.FileIO;
+import ohtu.io.FileIOInterface;
 
 /**
  *
@@ -21,11 +23,16 @@ import ohtu.io.FileIO;
 public class FileReferenceDao implements ReferenceDao {
 
     private List<Reference> list;
-    private FileIO io;
+    private FileIOInterface io;
 
     public FileReferenceDao() {
         this.list = new ArrayList<Reference>();
         this.io = new FileIO();
+    }
+    
+    public FileReferenceDao(FileIOInterface io){
+        this.list = new ArrayList<Reference>();
+        this.io = io;
     }
 
     @Override
@@ -47,6 +54,8 @@ public class FileReferenceDao implements ReferenceDao {
             ref = new Article(map.get("article"));
         } else if (map.containsKey("inproceedings")) {
             ref = new Inproceedings(map.get("inproceedings"));
+        } else if(map.containsKey("manual")){
+            ref = new Manual (map.get("manual"));
         }
         ref.addFromHashMap(map);
         this.add(ref);

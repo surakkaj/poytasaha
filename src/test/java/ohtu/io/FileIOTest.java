@@ -46,17 +46,6 @@ public class FileIOTest {
         Assert.assertTrue(result.contains("koira"));
     }
 
-    @Test
-    public void testSpecialChars() { 
-        
-        Assert.assertEquals("\\AA\\aa{\\\"A}{\\\"a}{\\\"O}{\\\"o}",fio.replaceSpecialChars("ÅåÄäÖö"));
-        Assert.assertEquals("{\\\"U}{\\\"u}\\ss",fio.replaceSpecialChars("Üüß"));
-        Assert.assertEquals("\\AE\\ae\\O\\o",fio.replaceSpecialChars("ÆæØø"));      
-
-        Assert.assertEquals("ÅåÄäÖö", fio.replaceBibtexFormatChars("\\AA\\aa{\\\"A}{\\\"a}{\\\"O}{\\\"o}"));
-        Assert.assertEquals("Üüß", fio.replaceBibtexFormatChars("{\\\"U}{\\\"u}\\ss"));
-        Assert.assertEquals("ÆæØø", fio.replaceBibtexFormatChars("\\AE\\ae\\O\\o"));         
-    }    
 
     @Test
     public void testReadFile() {

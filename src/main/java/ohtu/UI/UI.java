@@ -77,8 +77,8 @@ public class UI {
         ArrayList<ArrayList<String>> manual = new ArrayList<ArrayList<String>>();        
         required = new ArrayList<String>(Arrays.asList(requiredManual));
         optional = new ArrayList<String>(Arrays.asList(optionalManual));
-        book.add(required);
-        book.add(optional);
+        manual.add(required);
+        manual.add(optional);
         lists.put("manual", manual);
         
     }
