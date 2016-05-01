@@ -4,7 +4,7 @@ Ohtuminiprojekti
 
 ###Definition of done
 * Toteutus vastaa User story:ssa määriteltyä toiminnallisuutta
-* koodilla on kattavat yksikkötestit (rivikattavuus lähella 100 %)
+* koodilla on kattavat yksikkötestit (rivikattavuus lähellä 100 %)
 * EasyB:llä toteutetut hyvkäsymätestit
 * koodin ajantasainen tilanne näkyvissä GitHubissa ja testien tilanne CI-palvelimella
 * koodi on selkeää ja pyrkii noudattamaan Javan käytänteitä
@@ -18,7 +18,7 @@ Ohtuminiprojekti
 
 [Sprint 3 backlog & burndown](https://docs.google.com/spreadsheets/d/1K0Mkf4MwOF64_sZcxFksJuwhyvnLhg5k2N6ST9JWm5U/edit#gid=62500295)
 
-[Sprint 4 backlog & burndown]() tulossa
+[Sprint 4 backlog & burndown](https://docs.google.com/spreadsheets/d/1K0Mkf4MwOF64_sZcxFksJuwhyvnLhg5k2N6ST9JWm5U/edit#gid=651873298)
 
 [CI-palvelin Travis](https://travis-ci.org/surakkaj/poytasaha)
 

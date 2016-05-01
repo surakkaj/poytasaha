@@ -1,0 +1,6 @@
+<testsuite tests='4' results='4' failures='0' disabled='0' errors='0' time='2.636' name='behavior.create_reference'>
+  <testcase classname='behavior.create_reference' name='user can add an article reference by entering required information' time='0.27' />
+  <testcase classname='behavior.create_reference' name='user can add a book reference by giving required information' time='0.041' />
+  <testcase classname='behavior.create_reference' name='user can add a inproceedings reference by giving required information' time='0.032' />
+  <testcase classname='behavior.create_reference' name='user can add several references by giving required information' time='0.011' />
+</testsuite>

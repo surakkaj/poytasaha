@@ -109,19 +109,19 @@ public class UI {
     }
     
     private void wrongFileType() {
-        System.out.println("File didn't end in .txt or .bib");
+        io.print("File didn't end in .txt or .bib");
     }
     
     private void startingInstructions() {
         //Kirjoitin souteilla että on helpompi lukuisempi
-        System.out.println("Give file to write into. If file does not exist empty one will be created.");
-        System.out.println("File must be in .txt or .bib format.");
-        System.out.println("");
+        io.print("Give file to write into. If file does not exist empty one will be created.");
+        io.print("File must be in .txt or .bib format.");
+        io.print("");
     }
     
     private void wrongInput() {
-        System.out.println("Wrong input");
-        System.out.println("");
+        io.print("Wrong input");
+        io.print("");
     }
     
     private void askWhatUserWantsToDo() {
@@ -146,24 +146,24 @@ public class UI {
     }
     
     private void instructUserForOptions() {
-        System.out.println("");
-        System.out.println("Choose one number from below");
-        System.out.println("(1) Create new reference");
-        System.out.println("(2) List all existing references in file");
-        System.out.println("(3) Choose existing reference to modify");
-        System.out.println("(4) Choose existing reference to remove");
-        System.out.println("(5) Save and quit");
+        io.print("");
+        io.print("Choose one number from below");
+        io.print("(1) Create new reference");
+        io.print("(2) List all existing references in file");
+        io.print("(3) Choose existing reference to modify");
+        io.print("(4) Choose existing reference to remove");
+        io.print("(5) Save and quit");
     }
     
     private void lookUpExistingToModify() {
-        System.out.println("");
-        System.out.println("Give citation key of the reference you want to modify");
-        System.out.println("");
+        io.print("");
+        io.print("Give citation key of the reference you want to modify");
+        io.print("");
         String input = io.readLine(">");
         Reference ref = dao.searchByCitationKey(input);
-        System.out.println("");
-        System.out.println(ref.toBibtex());
-        System.out.println("");
+        io.print("");
+        io.print(ref.toBibtex());
+        io.print("");
         modifyReference(ref);
     }
     
@@ -174,8 +174,8 @@ public class UI {
     }
     
     private void askAndRecordToModify(HashMap<String, String> result, List<String> required, List<String> optional) {
-        System.out.println("");
-        System.out.println("Fill required fields: ");
+        io.print("");
+        io.print("Fill required fields: ");
         
         for (String req : required) {
             String current = result.get(req);
@@ -183,30 +183,30 @@ public class UI {
             System.out.println("current " + req + " is " + current);
             askForRequiredInput(req, result);
         }
-        System.out.println("");
-        System.out.println("Fill optional fields: ");
-        System.out.println("(you can skip field by pressing enter and keeping it empty)");
+        io.print("");
+        io.print("Fill optional fields: ");
+        io.print("(you can skip field by pressing enter and keeping it empty)");
         
         for (String opt : optional) {
             String current = "";
             if (result.containsKey(opt)) {
                 current = result.get(opt);
             }
-            System.out.println("current " + opt + " is " + current);
+            io.print("current " + opt + " is " + current);
             askForOptionalInput(opt, result);
         }
     }
     
     private void listContentOfFile() {
-        System.out.println("");
-        System.out.println("Listing content of file");
-        System.out.println(dao.toBibtex());
+        io.print("");
+        io.print("Listing content of file");
+        io.print(dao.toBibtex());
     }
     
     private void removeExistingReference() {
-        System.out.println("");
-        System.out.println("give citationkey to remove ");
-        System.out.println("");
+        io.print("");
+        io.print("give citationkey to remove ");
+        io.print("");
         String input = io.readLine(">");
         Reference ref = dao.searchByCitationKey(input);
         if (ref != null) {
@@ -214,10 +214,10 @@ public class UI {
         }
     }
     
-    private String giveFileName() {
-        System.out.println("Give filename:");
-        return io.readLine(">");
-    }
+//    private String giveFileName() {
+//        System.out.println("Give filename:");
+//        return io.readLine(">");
+//    }
     
     private HashMap<String, String> createNewTagInfo() {
         return askInfo(secondTagPhase());
@@ -230,12 +230,12 @@ public class UI {
     }
     
     private void formatInfo() {
-        System.out.println("Choose one number from below.");
-        System.out.println("");
-        System.out.println("(1) Article");
-        System.out.println("(2) Inproceedings");
-        System.out.println("(3) Book");
-        System.out.println("(4) manual");
+        io.print("Choose one number from below.");
+        io.print("");
+        io.print("(1) Article");
+        io.print("(2) Inproceedings");
+        io.print("(3) Book");
+        io.print("(4) manual");
     }
     
     private HashMap<String, String> askInfo(String format) {
@@ -247,7 +247,7 @@ public class UI {
     }
     
     private void askCitationKey(String type, HashMap<String, String> result) {
-        System.out.println("Give citation key:");
+        io.print("Give citation key:");
         result.put(type, io.readLine(">"));
     }
     
@@ -268,15 +268,15 @@ public class UI {
     }
     
     private void askAndRecord(HashMap<String, String> result, List<String> required, List<String> optional) {
-        System.out.println("");
-        System.out.println("Fill required fields: ");
+        io.print("");
+        io.print("Fill required fields: ");
         
         for (String req : required) {
             askForRequiredInput(req, result);
         }
-        System.out.println("");
-        System.out.println("Fill optional fields: ");
-        System.out.println("(you can skip field by pressing enter and keeping it empty)");
+        io.print("");
+        io.print("Fill optional fields: ");
+        io.print("(you can skip field by pressing enter and keeping it empty)");
         
         for (String opt : optional) {
             askForOptionalInput(opt, result);
@@ -284,7 +284,7 @@ public class UI {
     }
     
     private void askForRequiredInput(String req, HashMap<String, String> result) {
-        System.out.println("Give required input " + req + ":");
+        io.print("Give required input " + req + ":");
         String input = io.readLine(">");
         input.replaceAll("\\s", "");
         if (input.equals("")) {
@@ -295,7 +295,7 @@ public class UI {
     }
     
     private void askForOptionalInput(String opt, HashMap<String, String> result) {
-        System.out.println("Give optional input " + opt + ":");
+        io.print("Give optional input " + opt + ":");
         String input = io.readLine(">");
         input.replaceAll("\\s", "");
         if (!input.equals("")) {
@@ -304,9 +304,9 @@ public class UI {
     }
     
     private void askIfContinue() {
-        System.out.println("");
-        System.out.println("(1) Add next tag");
-        System.out.println("(2) Make file");
+        io.print("");
+        io.print("(1) Add next tag");
+        io.print("(2) Make file");
         turnSwitch(io.readLine(">"));
     }
     

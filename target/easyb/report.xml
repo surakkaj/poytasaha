@@ -1,31 +1,47 @@
-<easyb time='Wed Apr 27 13:09:52 EEST 2016' totalbehaviors='5' totalfailedbehaviors='0' totalpendingbehaviors='0' executionTime='939'>
-  <stories scenarios='5' failedscenarios='0' pendingscenarios='0' executionTime='939'>
-    <story name='create_reference' scenarios='4' failedscenarios='0' pendingscenarios='0' executionTime='833'>
+<easyb time='Mon May 02 00:00:54 EEST 2016' totalbehaviors='7' totalfailedbehaviors='0' totalpendingbehaviors='0' executionTime='3047'>
+  <stories scenarios='7' failedscenarios='0' pendingscenarios='0' executionTime='3047'>
+    <story name='create_reference' scenarios='4' failedscenarios='0' pendingscenarios='0' executionTime='2636'>
       <description name='User can add a reference to a file in bibtex-format' />
-      <scenario name='user can add an article reference by entering required information' result='success' executionTime='138'>
+      <scenario name='user can add an article reference by entering required information' result='success' executionTime='270'>
         <given name='commands Create new reference and Article are selected' result='success' />
         <when name='required and optional article reference information is entered' result='success' />
         <then name='a new article reference has been added' result='success' />
       </scenario>
-      <scenario name='user can add a book reference by giving required information' result='success' executionTime='31'>
+      <scenario name='user can add a book reference by giving required information' result='success' executionTime='41'>
         <given name='commands Create new reference and book are selected' result='success' />
         <when name='required book reference information is entered' result='success' />
         <then name='a new book reference has been added' result='success' />
       </scenario>
-      <scenario name='user can add a inproceedings reference by giving required information' result='success' executionTime='14'>
+      <scenario name='user can add a inproceedings reference by giving required information' result='success' executionTime='32'>
         <given name='commands Create new reference and inproceedings are selected' result='success' />
         <when name='required and optional inproceedings reference information is entered' result='success' />
         <then name='a new inproceedings reference has been added' result='success' />
       </scenario>
-      <scenario name='user can add several references by giving required information' result='success' executionTime='24'>
+      <scenario name='user can add several references by giving required information' result='success' executionTime='11'>
         <given name='commands Create new reference and reference type are selected' result='success' />
         <when name='required article reference information is entered' result='success' />
         <then name='more than one references have been added' result='success' />
       </scenario>
     </story>
-    <story name='modify_reference' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='106'>
+    <story name='delete_reference' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='115'>
+      <description name='User can delete an existing reference' />
+      <scenario name='user can add a reference by giving required information and delete the reference afterwards' result='success' executionTime='8'>
+        <given name='reference has been added and command Choose existing reference to remove is selected' result='success' />
+        <when name='citation key of the reference is entered' result='success' />
+        <then name='a reference has been deleted' result='success' />
+      </scenario>
+    </story>
+    <story name='list_references' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='169'>
+      <description name='User can see a list of existing references' />
+      <scenario name='user can add two references by giving required information and see a list of references afterwards' result='success' executionTime='52'>
+        <given name='references has been added and command List all existing references in file is selected' result='success' />
+        <when name='valid information and right commands are entered' result='success' />
+        <then name='a reference list can be seen' result='success' />
+      </scenario>
+    </story>
+    <story name='modify_reference' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='127'>
       <description name='User can modify existing reference' />
-      <scenario name='user can add a reference by giving required information and modify the information afterwards' result='success' executionTime='11'>
+      <scenario name='user can add a reference by giving required information and modify the information afterwards' result='success' executionTime='10'>
         <given name='reference has been added and command Choose existing reference to modify is selected' result='success' />
         <when name='citation key of the reference and valid information is entered' result='success' />
         <then name='a reference has been modified' result='success' />
