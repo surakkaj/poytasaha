@@ -16,23 +16,19 @@ public class CharReplacer {
      */
     public static String replaceSpecialChars(String text){
         String str = text;
-        Pattern p = Pattern.compile(".*[åäöüßæø].*", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = p.matcher(str);
-        if(matcher.matches()){
-            str = str.replace("å","\\aa");
-            str = str.replace("Å","\\AA");        
-            str = str.replace("ä","{\\\"a}");
-            str = str.replace("Ä","{\\\"A}");
-            str = str.replace("ö","{\\\"o}");
-            str = str.replace("Ö","{\\\"O}");
-            str = str.replace("ü","{\\\"u}"); 
-            str = str.replace("Ü","{\\\"U}");
-            str = str.replace("ß","\\ss");
-            str = str.replace("æ","\\ae");
-            str = str.replace("Æ","\\AE");
-            str = str.replace("ø","\\o");
-            str = str.replace("Ø","\\O");
-        }
+        str = str.replace("å","\\aa");
+        str = str.replace("Å","\\AA");        
+        str = str.replace("ä","{\\\"a}");
+        str = str.replace("Ä","{\\\"A}");
+        str = str.replace("ö","{\\\"o}");
+        str = str.replace("Ö","{\\\"O}");
+        str = str.replace("ü","{\\\"u}"); 
+        str = str.replace("Ü","{\\\"U}");
+        str = str.replace("ß","\\ss");
+        str = str.replace("æ","\\ae");
+        str = str.replace("Æ","\\AE");
+        str = str.replace("ø","\\o");
+        str = str.replace("Ø","\\O");
         return str;        
     }
     
