@@ -6,6 +6,7 @@
 package ohtu.data_access;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import ohtu.domain.Article;
@@ -127,7 +128,7 @@ public class FileReferenceDao implements ReferenceDao {
  * @param ck citation key
  * @return a newly formed reference in the desired format
  */
-    static Reference selectType(char a, String ck) {
+  public static Reference selectType(char a, String ck) {
         System.out.println(a);
         if (a == 'a') {
             return new Article(ck);
@@ -151,7 +152,7 @@ public class FileReferenceDao implements ReferenceDao {
  * @param context the of the bibtext without the @
  * @return the reference in the reference form
  */
-    static Reference parseReference(String context) {
+  public static Reference parseReference(String context) {
 
         List<String> items = Arrays.asList(context.split("\\n"));
 

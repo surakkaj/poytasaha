@@ -103,9 +103,42 @@ public class FileReferenceDaoTest {
         list.add(map);
         assertEquals(true, list.listAll().contains(manual));
     }
-    
+
     @Test
     public void giveAllReferencesFromOneFormatCorrectly() {
         Assert.assertTrue(list.giveAllReferencesFromOneFormat("article").contains("@article { article"));
+    }
+
+    @Test
+    public void selectTypeCorrectly() {
+        assertEquals("article", list.selectType('a', "ar").getType());
+        assertEquals("book", list.selectType('b', "b").getType());
+        assertEquals("inproceedings", list.selectType('i', "i").getType());
+        assertEquals("manual", list.selectType('m', "m").getType());
+    }
+
+    @Test
+    public void returnNullWhenCharIsInvalid() {
+        assertEquals(null, list.selectType('w', "ar"));
+    }
+
+    @Test
+    public void parseReferenceTest() {
+        String context = "article { Test,\n"
+                + "  author = {Aleksis Kivi},\n"
+                + "  title = {Kullervo},\n"
+                + "  pages : {320}\n"
+                + "}\n\n";
+        Assert.assertTrue(list.parseReference(context).getTags().containsKey("author"));
+    }
+
+    @Test
+    public void parseReferenceTestMethodReturnsNull() {
+        String context = "@article { Test,\n"
+                + "  author = {Aleksis Kivi},\n"
+                + "  title = {Kullervo},\n"
+                + "  pages = {320}\n"
+                + "}\n\n";
+        assertEquals(null, list.parseReference(context));
     }
 }
