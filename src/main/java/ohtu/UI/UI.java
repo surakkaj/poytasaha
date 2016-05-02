@@ -137,8 +137,10 @@ public class UI {
             lookUpExistingToModify();
         } else if (input.equals("4")) {
             removeExistingReference();
-        } else if (input.equals("5")) {
+        } else if (input.equals("6")) {
             this.onSwitch = false;
+        } else if (input.equals("5")) {
+            lookUpExistingCategory();
         } else {
             wrongInput();
             askWhatUserWantsToDo();
@@ -152,8 +154,16 @@ public class UI {
         io.print("(2) List all existing references in file");
         io.print("(3) Choose existing reference to modify");
         io.print("(4) Choose existing reference to remove");
-        io.print("(5) Save and quit");
+        io.print("(5) List all references in one category");
+        io.print("(6) Save and quit");
     }
+    
+    private void lookUpExistingCategory() {
+        formatInfo();
+        io.print("");
+        io.print(dao.giveAllReferencesFromOneFormat(chooseFormat()));
+    }
+    
     
     private void lookUpExistingToModify() {
         io.print("");
@@ -225,8 +235,7 @@ public class UI {
     
     private String secondTagPhase() {
         formatInfo();
-        String input = io.readLine(">");
-        return chooseFormat(input);
+        return chooseFormat();
     }
     
     private void formatInfo() {
@@ -251,7 +260,8 @@ public class UI {
         result.put(type, io.readLine(">"));
     }
     
-    private String chooseFormat(String input) {
+    private String chooseFormat() {
+        String input = io.readLine(">");
         input.replaceAll("\\s", "");
         if (input.equals("1")) {
             return "article";

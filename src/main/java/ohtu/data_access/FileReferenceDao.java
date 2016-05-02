@@ -87,6 +87,21 @@ public class FileReferenceDao implements ReferenceDao {
     
     public void save(String filePath) {
         this.io.write(filePath, this.toBibtex());
+        
     }
-
+    
+    public String giveAllReferencesFromOneFormat(String format) {
+        ArrayList<Reference> result = new ArrayList<Reference>();
+        for (Reference ref : this.list) {
+            if (ref.getType().equals(format)) {
+                result.add(ref);
+            }
+        }
+        StringBuilder sb = new StringBuilder("");
+        for (Reference r : result) {
+            sb.append(r.toBibtex());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }
