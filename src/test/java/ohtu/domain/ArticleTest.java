@@ -6,6 +6,7 @@
 package ohtu.domain;
 
 import ohtu.data_access.FileReferenceDao;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -51,21 +52,18 @@ public class ArticleTest {
         assertEquals(4, article.FORCE_FIELDS.length);
         assertEquals(6, article.OPTIONAL_FIELDS.length);
     }
-/**
+
     @Test
     public void bibtextIsPrintedCorrectly() {
         FileReferenceDao dao = new FileReferenceDao();
         article.addTag("author", "Aleksis Kivi");
         article.addTag("title", "Kullervo");
-        article.addTag("pages", "320");
         dao.add(article);
-        assertEquals("@article { Test,\n"
-                + "  author = {Aleksis Kivi},\n"
-                + "  title = {Kullervo},\n"
-                + "  pages = {320}\n"
-                + "}\n\n", dao.toBibtex());
+        Assert.assertTrue(dao.toBibtex().contains("@article {"));
+        Assert.assertTrue(dao.toBibtex().contains("author = {Aleksis Kivi}"));
+        Assert.assertTrue(dao.toBibtex().contains("title = {Kullervo}"));
     }
-**/
+
     @Test
     public void toStringIsPrintedCorrectly() {
         Reference article2 = new Article("Hoi");

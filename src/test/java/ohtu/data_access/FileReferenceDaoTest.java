@@ -9,8 +9,11 @@ import java.util.*;
 import ohtu.domain.Article;
 import ohtu.domain.Book;
 import ohtu.domain.Inproceedings;
+import ohtu.domain.Manual;
 import ohtu.domain.Reference;
 import ohtu.io.FileIO;
+import ohtu.io.FileIOInterface;
+import ohtu.io.StubFileIO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,24 +29,29 @@ public class FileReferenceDaoTest {
     Reference book;
     Reference article;
     Reference inproceedings;
+    Reference manual;
     FileIO io;
     HashMap<String, String> map;
+    FileReferenceDao frd;
 
     @Before
     public void setUp() {
         book = new Book("book");
         article = new Article("article");
         inproceedings = new Inproceedings("inproceedings");
+        manual = new Manual("manual");
         list = new FileReferenceDao();
         list.add(book);
         list.add(article);
         list.add(inproceedings);
+        list.add(manual);
         map = new HashMap<String, String>();
+        frd = new FileReferenceDao(new StubFileIO());
     }
 
     @Test
     public void listsAllReferences() {
-        assertEquals(3, list.listAll().size());
+        assertEquals(4, list.listAll().size());
     }
 
     @Test
@@ -59,32 +67,45 @@ public class FileReferenceDaoTest {
     }
 
     @Test
-    public void addsCorrectlyHashMap() {
+    public void addCorrectlyHashMap() {
         map.put("book", null);
         map.put("article", null);
         map.put("inproceedings", null);
+        map.put("manual", null);
         list.add(map);
-        assertEquals(3, map.size());
+        assertEquals(4, map.size());
     }
 
     @Test
-    public void addsArticleInHashMap() {
+    public void addArticleInHashMap() {
         map.put("article", null);
         list.add(map);
         assertEquals(true, list.listAll().contains(article));
     }
 
     @Test
-    public void addsBookInHashMap() {
+    public void addBookInHashMap() {
         map.put("book", null);
         list.add(map);
         assertEquals(true, list.listAll().contains(book));
     }
 
     @Test
-    public void addsInproceedingsInHashMap() {
+    public void addInproceedingsInHashMap() {
         map.put("inproceedings", null);
         list.add(map);
         assertEquals(true, list.listAll().contains(inproceedings));
+    }
+
+    @Test
+    public void addManualInHashMap() {
+        map.put("manual", null);
+        list.add(map);
+        assertEquals(true, list.listAll().contains(manual));
+    }
+    
+    @Test
+    public void giveAllReferencesFromOneFormatCorrectly() {
+        Assert.assertTrue(list.giveAllReferencesFromOneFormat("article").contains("@article { article"));
     }
 }

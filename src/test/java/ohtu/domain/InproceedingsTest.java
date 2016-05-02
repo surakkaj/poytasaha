@@ -6,6 +6,7 @@
 package ohtu.domain;
 
 import ohtu.data_access.FileReferenceDao;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -49,21 +50,18 @@ public class InproceedingsTest {
         assertEquals(4, inproceedings.FORCE_FIELDS.length);
         assertEquals(10, inproceedings.OPTIONAL_FIELDS.length);
     }
-/**
+
     @Test
     public void bibtextIsPrintedCorrectly() {
         FileReferenceDao dao = new FileReferenceDao();
         inproceedings.addTag("author", "Aleksis Kivi");
-        inproceedings.addTag("title", "Kullervo");
         inproceedings.addTag("publisher", "Otava");
         dao.add(inproceedings);
-        assertEquals("@inproceedings { Test,\n"
-                + "  author = {Aleksis Kivi},\n"
-                + "  title = {Kullervo},\n"
-                + "  publisher = {Otava}\n"
-                + "}\n\n", dao.toBibtex());
+        Assert.assertTrue(dao.toBibtex().contains("@inproceedings {"));
+        Assert.assertTrue(dao.toBibtex().contains("author = {Aleksis Kivi}"));  
+        Assert.assertTrue(dao.toBibtex().contains("publisher = {Otava}"));  
     }
-**/
+
     @Test
     public void returnsTypeCorrectly() {
         assertEquals("inproceedings", inproceedings.getType());
