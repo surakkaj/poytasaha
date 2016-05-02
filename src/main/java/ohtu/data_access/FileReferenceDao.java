@@ -129,7 +129,6 @@ public class FileReferenceDao implements ReferenceDao {
  * @return a newly formed reference in the desired format
  */
   public static Reference selectType(char a, String ck) {
-        System.out.println(a);
         if (a == 'a') {
             return new Article(ck);
         }
