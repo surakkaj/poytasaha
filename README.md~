@@ -5,7 +5,7 @@ Ohtuminiprojekti
 ###Definition of done
 * Toteutus vastaa User story:ssa määriteltyä toiminnallisuutta
 * koodilla on kattavat yksikkötestit (rivikattavuus lähellä 100 %)
-* EasyB:llä toteutetut hyvkäsymätestit
+* EasyB:llä toteutetut hyväksymätestit
 * koodin ajantasainen tilanne näkyvissä GitHubissa ja testien tilanne CI-palvelimella
 * koodi on selkeää ja pyrkii noudattamaan Javan käytänteitä
 
@@ -24,7 +24,7 @@ Ohtuminiprojekti
 
 [Loppuraportti](docs/) tulossa
 
-[![Build Status](https://travis-ci.org/surakkaj/poytasaha.svg?branch=master)](https://travis-ci.org/surakkaj/poytasaha)
+[![Build Status](https://travis-ci.org/surakkaj/poytasaha.svg?branch=master)](https://travis-ci.org/surakkaj/poytasaha) [![Coverage Status](https://coveralls.io/repos/github/surakkaj/poytasaha/badge.svg?branch=master)](https://coveralls.io/github/surakkaj/poytasaha?branch=master)
 
 
 

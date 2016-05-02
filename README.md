@@ -24,7 +24,7 @@ Ohtuminiprojekti
 
 [Loppuraportti](docs/) tulossa
 
-[![Build Status](https://travis-ci.org/surakkaj/poytasaha.svg?branch=master)](https://travis-ci.org/surakkaj/poytasaha) [![Coverage Status](https://coveralls.io/repos/github/surakkaj/poytasaha/badge.svg?branch=master)](https://coveralls.io/github/surakkaj/poytasaha?branch=master)
+[![Build Status](https://travis-ci.org/surakkaj/poytasaha.svg?branch=master)](https://travis-ci.org/surakkaj/poytasaha)
 
 
 
