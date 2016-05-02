@@ -1,0 +1,893 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.9428571428571428" branch-rate="0.9761904761904762" lines-covered="198" lines-valid="210" branches-covered="41" branches-valid="42" complexity="1.5166666666666666" version="1.9.4.1" timestamp="1462189609627">
+	<sources>
+		<source>/home/susisusi/Asiakirjat/HY/Ohtu/Miniprojekti/poytasaha/src/main/java</source>
+		<source>--source</source>
+	</sources>
+	<packages>
+		<package name="ohtu.data_access" line-rate="0.9375" branch-rate="0.95" complexity="1.8">
+			<classes>
+				<class name="ohtu.data_access.FileReferenceDao" filename="ohtu/data_access/FileReferenceDao.java" line-rate="0.9375" branch-rate="0.95" complexity="2.2">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="28" hits="13" branch="false"/>
+								<line number="29" hits="13" branch="false"/>
+								<line number="30" hits="13" branch="false"/>
+								<line number="31" hits="13" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Lohtu/io/FileIOInterface;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="33" hits="9" branch="false"/>
+								<line number="34" hits="9" branch="false"/>
+								<line number="35" hits="9" branch="false"/>
+								<line number="36" hits="9" branch="false"/>
+							</lines>
+						</method>
+						<method name="add" signature="(Ljava/util/HashMap;)V" line-rate="1.0" branch-rate="0.875">
+							<lines>
+								<line number="50" hits="5" branch="false"/>
+								<line number="51" hits="5" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="52" hits="2" branch="false"/>
+								<line number="53" hits="3" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="54" hits="1" branch="false"/>
+								<line number="55" hits="2" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="56" hits="1" branch="false"/>
+								<line number="57" hits="1" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="58" hits="1" branch="false"/>
+								<line number="60" hits="5" branch="false"/>
+								<line number="61" hits="5" branch="false"/>
+								<line number="62" hits="5" branch="false"/>
+							</lines>
+						</method>
+						<method name="add" signature="(Lohtu/domain/Reference;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="45" hits="45" branch="false"/>
+								<line number="46" hits="45" branch="false"/>
+							</lines>
+						</method>
+						<method name="giveAllReferencesFromOneFormat" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="94" hits="1" branch="false"/>
+								<line number="95" hits="1" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="96" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="97" hits="1" branch="false"/>
+								<line number="99" hits="4" branch="false"/>
+								<line number="100" hits="1" branch="false"/>
+								<line number="101" hits="1" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="102" hits="1" branch="false"/>
+								<line number="103" hits="1" branch="false"/>
+								<line number="104" hits="1" branch="false"/>
+								<line number="105" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="listAll" signature="()Ljava/util/List;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="40" hits="5" branch="false"/>
+							</lines>
+						</method>
+						<method name="save" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="89" hits="0" branch="false"/>
+								<line number="91" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="searchByCitationKey" signature="(Ljava/lang/String;)Lohtu/domain/Reference;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="71" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="72" hits="11" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="73" hits="2" branch="false"/>
+								<line number="75" hits="9" branch="false"/>
+								<line number="76" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="searchByContext" signature="(Ljava/lang/String;)Lohtu/domain/Reference;" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="66" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="toBibtex" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="80" hits="12" branch="false"/>
+								<line number="81" hits="12" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="82" hits="12" branch="false"/>
+								<line number="83" hits="12" branch="false"/>
+								<line number="84" hits="12" branch="false"/>
+								<line number="85" hits="12" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="28" hits="13" branch="false"/>
+						<line number="29" hits="13" branch="false"/>
+						<line number="30" hits="13" branch="false"/>
+						<line number="31" hits="13" branch="false"/>
+						<line number="33" hits="9" branch="false"/>
+						<line number="34" hits="9" branch="false"/>
+						<line number="35" hits="9" branch="false"/>
+						<line number="36" hits="9" branch="false"/>
+						<line number="40" hits="5" branch="false"/>
+						<line number="45" hits="45" branch="false"/>
+						<line number="46" hits="45" branch="false"/>
+						<line number="50" hits="5" branch="false"/>
+						<line number="51" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="52" hits="2" branch="false"/>
+						<line number="53" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="54" hits="1" branch="false"/>
+						<line number="55" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="56" hits="1" branch="false"/>
+						<line number="57" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="58" hits="1" branch="false"/>
+						<line number="60" hits="5" branch="false"/>
+						<line number="61" hits="5" branch="false"/>
+						<line number="62" hits="5" branch="false"/>
+						<line number="66" hits="0" branch="false"/>
+						<line number="71" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="72" hits="11" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="73" hits="2" branch="false"/>
+						<line number="75" hits="9" branch="false"/>
+						<line number="76" hits="2" branch="false"/>
+						<line number="80" hits="12" branch="false"/>
+						<line number="81" hits="12" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="82" hits="12" branch="false"/>
+						<line number="83" hits="12" branch="false"/>
+						<line number="84" hits="12" branch="false"/>
+						<line number="85" hits="12" branch="false"/>
+						<line number="89" hits="0" branch="false"/>
+						<line number="91" hits="0" branch="false"/>
+						<line number="94" hits="1" branch="false"/>
+						<line number="95" hits="1" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="96" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="97" hits="1" branch="false"/>
+						<line number="99" hits="4" branch="false"/>
+						<line number="100" hits="1" branch="false"/>
+						<line number="101" hits="1" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="102" hits="1" branch="false"/>
+						<line number="103" hits="1" branch="false"/>
+						<line number="104" hits="1" branch="false"/>
+						<line number="105" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.data_access.ReferenceDao" filename="ohtu/data_access/ReferenceDao.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="ohtu.domain" line-rate="0.9701492537313433" branch-rate="1.0" complexity="1.434782608695652">
+			<classes>
+				<class name="ohtu.domain.Article" filename="ohtu/domain/Article.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="13" hits="18" branch="false"/>
+								<line number="14" hits="18" branch="false"/>
+								<line number="16" hits="18" branch="false"/>
+								<line number="17" hits="18" branch="false"/>
+								<line number="19" hits="18" branch="false"/>
+							</lines>
+						</method>
+						<method name="getType" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="28" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="toBibtex" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="23" hits="4" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="13" hits="18" branch="false"/>
+						<line number="14" hits="18" branch="false"/>
+						<line number="16" hits="18" branch="false"/>
+						<line number="17" hits="18" branch="false"/>
+						<line number="19" hits="18" branch="false"/>
+						<line number="23" hits="4" branch="false"/>
+						<line number="28" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.domain.Book" filename="ohtu/domain/Book.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="15" hits="17" branch="false"/>
+								<line number="16" hits="17" branch="false"/>
+								<line number="19" hits="17" branch="false"/>
+								<line number="20" hits="17" branch="false"/>
+								<line number="21" hits="17" branch="false"/>
+							</lines>
+						</method>
+						<method name="getType" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="30" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="toBibtex" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="25" hits="3" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="15" hits="17" branch="false"/>
+						<line number="16" hits="17" branch="false"/>
+						<line number="19" hits="17" branch="false"/>
+						<line number="20" hits="17" branch="false"/>
+						<line number="21" hits="17" branch="false"/>
+						<line number="25" hits="3" branch="false"/>
+						<line number="30" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.domain.Inproceedings" filename="ohtu/domain/Inproceedings.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="14" hits="16" branch="false"/>
+								<line number="15" hits="16" branch="false"/>
+								<line number="18" hits="16" branch="false"/>
+								<line number="19" hits="16" branch="false"/>
+								<line number="20" hits="16" branch="false"/>
+							</lines>
+						</method>
+						<method name="getType" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="29" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="toBibtex" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="24" hits="3" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="14" hits="16" branch="false"/>
+						<line number="15" hits="16" branch="false"/>
+						<line number="18" hits="16" branch="false"/>
+						<line number="19" hits="16" branch="false"/>
+						<line number="20" hits="16" branch="false"/>
+						<line number="24" hits="3" branch="false"/>
+						<line number="29" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.domain.Manual" filename="ohtu/domain/Manual.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="14" hits="13" branch="false"/>
+								<line number="15" hits="13" branch="false"/>
+								<line number="18" hits="13" branch="false"/>
+								<line number="19" hits="13" branch="false"/>
+								<line number="20" hits="13" branch="false"/>
+							</lines>
+						</method>
+						<method name="getType" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="29" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="toBibtex" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="24" hits="3" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="14" hits="13" branch="false"/>
+						<line number="15" hits="13" branch="false"/>
+						<line number="18" hits="13" branch="false"/>
+						<line number="19" hits="13" branch="false"/>
+						<line number="20" hits="13" branch="false"/>
+						<line number="24" hits="3" branch="false"/>
+						<line number="29" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.domain.Reference" filename="ohtu/domain/Reference.java" line-rate="0.9487179487179487" branch-rate="1.0" complexity="1.9090909090909092">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="29" hits="64" branch="false"/>
+								<line number="30" hits="64" branch="false"/>
+								<line number="31" hits="64" branch="false"/>
+								<line number="32" hits="64" branch="false"/>
+							</lines>
+						</method>
+						<method name="addFromHashMap" signature="(Ljava/util/HashMap;)Z" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="42" hits="5" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="43" hits="8" branch="false"/>
+								<line number="44" hits="8" branch="false"/>
+								<line number="45" hits="5" branch="false"/>
+							</lines>
+						</method>
+						<method name="addRequirements" signature="([Ljava/lang/String;[Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="35" hits="64" branch="false"/>
+								<line number="36" hits="64" branch="false"/>
+								<line number="37" hits="64" branch="false"/>
+							</lines>
+						</method>
+						<method name="addTag" signature="(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Boolean;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="49" hits="45" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="50" hits="14" branch="false"/>
+								<line number="52" hits="31" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="53" hits="6" branch="false"/>
+								<line number="55" hits="25" branch="false"/>
+								<line number="56" hits="25" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCk" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="89" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTags" signature="()Ljava/util/Map;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="97" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="setFields" signature="([Ljava/lang/String;[Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="93" hits="0" branch="false"/>
+								<line number="94" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="toBibtex" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="67" hits="13" branch="false"/>
+								<line number="68" hits="13" branch="false"/>
+								<line number="69" hits="13" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="70" hits="24" branch="false"/>
+								<line number="71" hits="24" branch="false"/>
+								<line number="72" hits="24" branch="false"/>
+								<line number="73" hits="13" branch="false"/>
+								<line number="74" hits="13" branch="false"/>
+								<line number="75" hits="13" branch="false"/>
+							</lines>
+						</method>
+						<method name="toString" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="80" hits="1" branch="false"/>
+								<line number="81" hits="1" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="82" hits="2" branch="false"/>
+								<line number="83" hits="2" branch="false"/>
+								<line number="84" hits="2" branch="false"/>
+								<line number="85" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="validate" signature="(Ljava/lang/String;)Ljava/lang/Boolean;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="60" hits="45" branch="true" condition-coverage="100% (4/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="61" hits="31" branch="false"/>
+								<line number="63" hits="14" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="29" hits="64" branch="false"/>
+						<line number="30" hits="64" branch="false"/>
+						<line number="31" hits="64" branch="false"/>
+						<line number="32" hits="64" branch="false"/>
+						<line number="35" hits="64" branch="false"/>
+						<line number="36" hits="64" branch="false"/>
+						<line number="37" hits="64" branch="false"/>
+						<line number="42" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="43" hits="8" branch="false"/>
+						<line number="44" hits="8" branch="false"/>
+						<line number="45" hits="5" branch="false"/>
+						<line number="49" hits="45" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="50" hits="14" branch="false"/>
+						<line number="52" hits="31" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="53" hits="6" branch="false"/>
+						<line number="55" hits="25" branch="false"/>
+						<line number="56" hits="25" branch="false"/>
+						<line number="60" hits="45" branch="true" condition-coverage="100% (4/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="61" hits="31" branch="false"/>
+						<line number="63" hits="14" branch="false"/>
+						<line number="67" hits="13" branch="false"/>
+						<line number="68" hits="13" branch="false"/>
+						<line number="69" hits="13" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="70" hits="24" branch="false"/>
+						<line number="71" hits="24" branch="false"/>
+						<line number="72" hits="24" branch="false"/>
+						<line number="73" hits="13" branch="false"/>
+						<line number="74" hits="13" branch="false"/>
+						<line number="75" hits="13" branch="false"/>
+						<line number="80" hits="1" branch="false"/>
+						<line number="81" hits="1" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="82" hits="2" branch="false"/>
+						<line number="83" hits="2" branch="false"/>
+						<line number="84" hits="2" branch="false"/>
+						<line number="85" hits="1" branch="false"/>
+						<line number="89" hits="11" branch="false"/>
+						<line number="93" hits="0" branch="false"/>
+						<line number="94" hits="0" branch="false"/>
+						<line number="97" hits="2" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="ohtu.io" line-rate="0.9047619047619048" branch-rate="1.0" complexity="1.4">
+			<classes>
+				<class name="ohtu.io.ConsoleIO" filename="ohtu/io/ConsoleIO.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/util/Scanner;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="9" hits="3" branch="false"/>
+								<line number="10" hits="3" branch="false"/>
+								<line number="11" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="print" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="13" hits="1" branch="false"/>
+								<line number="14" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="readInt" signature="(Ljava/lang/String;)I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="17" hits="1" branch="false"/>
+								<line number="18" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="readLine" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="22" hits="1" branch="false"/>
+								<line number="23" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="9" hits="3" branch="false"/>
+						<line number="10" hits="3" branch="false"/>
+						<line number="11" hits="3" branch="false"/>
+						<line number="13" hits="1" branch="false"/>
+						<line number="14" hits="1" branch="false"/>
+						<line number="17" hits="1" branch="false"/>
+						<line number="18" hits="1" branch="false"/>
+						<line number="22" hits="1" branch="false"/>
+						<line number="23" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.io.FileIO" filename="ohtu/io/FileIO.java" line-rate="0.8" branch-rate="1.0" complexity="2.3333333333333335">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="19" hits="15" branch="false"/>
+								<line number="20" hits="15" branch="false"/>
+								<line number="21" hits="15" branch="false"/>
+							</lines>
+						</method>
+						<method name="readFile" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="0.7894736842105263" branch-rate="1.0">
+							<lines>
+								<line number="51" hits="2" branch="false"/>
+								<line number="52" hits="2" branch="false"/>
+								<line number="53" hits="2" branch="false"/>
+								<line number="55" hits="2" branch="false"/>
+								<line number="56" hits="0" branch="false"/>
+								<line number="57" hits="0" branch="false"/>
+								<line number="58" hits="2" branch="false"/>
+								<line number="60" hits="2" branch="false"/>
+								<line number="61" hits="2" branch="false"/>
+								<line number="62" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="63" hits="2" branch="false"/>
+								<line number="64" hits="2" branch="false"/>
+								<line number="65" hits="2" branch="false"/>
+								<line number="67" hits="2" branch="false"/>
+								<line number="68" hits="2" branch="false"/>
+								<line number="69" hits="0" branch="false"/>
+								<line number="70" hits="0" branch="false"/>
+								<line number="71" hits="2" branch="false"/>
+								<line number="72" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="write" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="0.75" branch-rate="1.0">
+							<lines>
+								<line number="33" hits="3" branch="false"/>
+								<line number="35" hits="3" branch="false"/>
+								<line number="36" hits="3" branch="false"/>
+								<line number="37" hits="3" branch="false"/>
+								<line number="38" hits="0" branch="false"/>
+								<line number="39" hits="0" branch="false"/>
+								<line number="40" hits="3" branch="false"/>
+								<line number="41" hits="3" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="19" hits="15" branch="false"/>
+						<line number="20" hits="15" branch="false"/>
+						<line number="21" hits="15" branch="false"/>
+						<line number="33" hits="3" branch="false"/>
+						<line number="35" hits="3" branch="false"/>
+						<line number="36" hits="3" branch="false"/>
+						<line number="37" hits="3" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+						<line number="39" hits="0" branch="false"/>
+						<line number="40" hits="3" branch="false"/>
+						<line number="41" hits="3" branch="false"/>
+						<line number="51" hits="2" branch="false"/>
+						<line number="52" hits="2" branch="false"/>
+						<line number="53" hits="2" branch="false"/>
+						<line number="55" hits="2" branch="false"/>
+						<line number="56" hits="0" branch="false"/>
+						<line number="57" hits="0" branch="false"/>
+						<line number="58" hits="2" branch="false"/>
+						<line number="60" hits="2" branch="false"/>
+						<line number="61" hits="2" branch="false"/>
+						<line number="62" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="63" hits="2" branch="false"/>
+						<line number="64" hits="2" branch="false"/>
+						<line number="65" hits="2" branch="false"/>
+						<line number="67" hits="2" branch="false"/>
+						<line number="68" hits="2" branch="false"/>
+						<line number="69" hits="0" branch="false"/>
+						<line number="70" hits="0" branch="false"/>
+						<line number="71" hits="2" branch="false"/>
+						<line number="72" hits="2" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.io.FileIOInterface" filename="ohtu/io/FileIOInterface.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="ohtu.io.IO" filename="ohtu/io/IO.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="ohtu.io.StubFileIO" filename="ohtu/io/StubFileIO.java" line-rate="1.0" branch-rate="1.0" complexity="1.6666666666666667">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="15" hits="11" branch="false"/>
+								<line number="16" hits="11" branch="false"/>
+								<line number="17" hits="11" branch="false"/>
+								<line number="18" hits="11" branch="false"/>
+							</lines>
+						</method>
+						<method name="readFile" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="22" hits="2" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="23" hits="1" branch="false"/>
+								<line number="25" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="write" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="30" hits="1" branch="false"/>
+								<line number="31" hits="1" branch="false"/>
+								<line number="32" hits="1" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="15" hits="11" branch="false"/>
+						<line number="16" hits="11" branch="false"/>
+						<line number="17" hits="11" branch="false"/>
+						<line number="18" hits="11" branch="false"/>
+						<line number="22" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="23" hits="1" branch="false"/>
+						<line number="25" hits="1" branch="false"/>
+						<line number="30" hits="1" branch="false"/>
+						<line number="31" hits="1" branch="false"/>
+						<line number="32" hits="1" branch="false"/>
+					</lines>
+				</class>
+				<class name="ohtu.io.StubIO" filename="ohtu/io/StubIO.java" line-rate="1.0" branch-rate="1.0" complexity="1.4">
+					<methods>
+						<method name="&lt;init&gt;" signature="([Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="11" hits="3" branch="false"/>
+								<line number="12" hits="3" branch="false"/>
+								<line number="13" hits="3" branch="false"/>
+								<line number="14" hits="3" branch="false"/>
+								<line number="15" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPrints" signature="()Ljava/util/ArrayList;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="27" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="print" signature="(Ljava/lang/String;)V" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="18" hits="5" branch="false"/>
+								<line number="19" hits="5" branch="false"/>
+							</lines>
+						</method>
+						<method name="readInt" signature="(Ljava/lang/String;)I" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="22" hits="1" branch="false"/>
+								<line number="23" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="readLine" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="31" hits="3" branch="false"/>
+								<line number="32" hits="3" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="33" hits="1" branch="false"/>
+								<line number="35" hits="2" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="11" hits="3" branch="false"/>
+						<line number="12" hits="3" branch="false"/>
+						<line number="13" hits="3" branch="false"/>
+						<line number="14" hits="3" branch="false"/>
+						<line number="15" hits="3" branch="false"/>
+						<line number="18" hits="5" branch="false"/>
+						<line number="19" hits="5" branch="false"/>
+						<line number="22" hits="1" branch="false"/>
+						<line number="23" hits="1" branch="false"/>
+						<line number="27" hits="1" branch="false"/>
+						<line number="31" hits="3" branch="false"/>
+						<line number="32" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="33" hits="1" branch="false"/>
+						<line number="35" hits="2" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="ohtu.util" line-rate="0.96875" branch-rate="1.0" complexity="1.5">
+			<classes>
+				<class name="ohtu.util.CharReplacer" filename="ohtu/util/CharReplacer.java" line-rate="0.96875" branch-rate="1.0" complexity="1.5">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
+							<lines>
+								<line number="10" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="replaceBibtexFormatChars" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="42" hits="6" branch="false"/>
+								<line number="43" hits="6" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="44" hits="3" branch="false"/>
+								<line number="45" hits="3" branch="false"/>
+								<line number="46" hits="3" branch="false"/>
+								<line number="47" hits="3" branch="false"/>
+								<line number="48" hits="3" branch="false"/>
+								<line number="49" hits="3" branch="false"/>
+								<line number="50" hits="3" branch="false"/>
+								<line number="51" hits="3" branch="false"/>
+								<line number="52" hits="3" branch="false"/>
+								<line number="53" hits="3" branch="false"/>
+								<line number="54" hits="3" branch="false"/>
+								<line number="55" hits="3" branch="false"/>
+								<line number="56" hits="3" branch="false"/>
+								<line number="58" hits="6" branch="false"/>
+							</lines>
+						</method>
+						<method name="replaceSpecialChars" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0">
+							<lines>
+								<line number="18" hits="7" branch="false"/>
+								<line number="19" hits="7" branch="false"/>
+								<line number="20" hits="7" branch="false"/>
+								<line number="21" hits="7" branch="false"/>
+								<line number="22" hits="7" branch="false"/>
+								<line number="23" hits="7" branch="false"/>
+								<line number="24" hits="7" branch="false"/>
+								<line number="25" hits="7" branch="false"/>
+								<line number="26" hits="7" branch="false"/>
+								<line number="27" hits="7" branch="false"/>
+								<line number="28" hits="7" branch="false"/>
+								<line number="29" hits="7" branch="false"/>
+								<line number="30" hits="7" branch="false"/>
+								<line number="31" hits="7" branch="false"/>
+								<line number="32" hits="7" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="10" hits="0" branch="false"/>
+						<line number="18" hits="7" branch="false"/>
+						<line number="19" hits="7" branch="false"/>
+						<line number="20" hits="7" branch="false"/>
+						<line number="21" hits="7" branch="false"/>
+						<line number="22" hits="7" branch="false"/>
+						<line number="23" hits="7" branch="false"/>
+						<line number="24" hits="7" branch="false"/>
+						<line number="25" hits="7" branch="false"/>
+						<line number="26" hits="7" branch="false"/>
+						<line number="27" hits="7" branch="false"/>
+						<line number="28" hits="7" branch="false"/>
+						<line number="29" hits="7" branch="false"/>
+						<line number="30" hits="7" branch="false"/>
+						<line number="31" hits="7" branch="false"/>
+						<line number="32" hits="7" branch="false"/>
+						<line number="42" hits="6" branch="false"/>
+						<line number="43" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="44" hits="3" branch="false"/>
+						<line number="45" hits="3" branch="false"/>
+						<line number="46" hits="3" branch="false"/>
+						<line number="47" hits="3" branch="false"/>
+						<line number="48" hits="3" branch="false"/>
+						<line number="49" hits="3" branch="false"/>
+						<line number="50" hits="3" branch="false"/>
+						<line number="51" hits="3" branch="false"/>
+						<line number="52" hits="3" branch="false"/>
+						<line number="53" hits="3" branch="false"/>
+						<line number="54" hits="3" branch="false"/>
+						<line number="55" hits="3" branch="false"/>
+						<line number="56" hits="3" branch="false"/>
+						<line number="58" hits="6" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>
