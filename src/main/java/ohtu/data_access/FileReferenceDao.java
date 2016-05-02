@@ -104,4 +104,83 @@ public class FileReferenceDao implements ReferenceDao {
         }
         return sb.toString();
     }
+    
+    /**
+     * this method splits a bibtex file from the @ signs and sends them through the "parseReference" method, and adds them to the list one reference at a thime
+     * @param Filepath the path of the file
+     */
+    public void loadfromBibtex(String Filepath) {
+        String file = io.readFile(Filepath);
+        List<String> items = Arrays.asList(file.split("@"));
+        Reference ref = null;
+        for (String s : items) {
+            if (s.length() <= 4) {
+                continue;
+            }
+            ref = parseReference(s);
+            this.list.add(ref);
+        }
+    }
+/**
+ * 
+ * @param a the first character of the referencetype
+ * @param ck citation key
+ * @return a newly formed reference in the desired format
+ */
+    static Reference selectType(char a, String ck) {
+        System.out.println(a);
+        if (a == 'a') {
+            return new Article(ck);
+        }
+        if (a == 'b') {
+            return new Book(ck);
+
+        }
+        if (a == 'i') {
+            return new Inproceedings(ck);
+
+        }
+        if (a == 'm') {
+            return new Manual(ck);
+
+        }
+        return null;
+    }
+/**
+ * 
+ * @param context the of the bibtext without the @
+ * @return the reference in the reference form
+ */
+    static Reference parseReference(String context) {
+
+        List<String> items = Arrays.asList(context.split("\\n"));
+
+        String[] slot = items.get(0).split("\\{");
+
+        slot[1] = slot[1].substring(0, slot[1].length() - 2);
+        Reference ref = selectType(slot[0].charAt(0), slot[1]);
+        if (ref == null) {
+            return null;
+        }
+        items = items.subList(1, items.size() - 1);
+        // withouth this the last entry's last character will be removed.
+        items.set(items.size() - 2, items.get(items.size() - 1) + ".");
+        for (String s : items) {
+            if (!s.contains("=")) {
+                continue;
+            }
+            slot = s.split("=");
+            slot[0] = slot[0].replaceAll("[^a-zA-Z0-9]+", "");
+            slot[1] = slot[1].substring(2, slot[1].length() - 3);
+            if (ref.addTag(slot[0], slot[1])) {
+
+            } else {
+                System.out.println("could not add: " + slot[0]);
+            }
+
+        }
+
+        return ref;
+    }
+
 }
