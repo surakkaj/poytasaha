@@ -12,7 +12,7 @@ scenario "user can add two references by giving required information and see a l
         dao = new FileReferenceDao(fio)
         io = new StubIO("test.bib","1", "3", "123","Jaana Java", "Olio-ohjelmointi", 
         "Yliopistopaino", "2012", "","","","","","","", "1", "1", "abc","O. Olio", "Ketterät menetelmät", 
-        "Ohjelmointi", "2012","","","","","","","2","5") 
+        "Ohjelmointi", "2012","","","","","","","2","6") 
         ui = new UI(io, dao)        
     }
 

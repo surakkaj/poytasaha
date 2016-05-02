@@ -12,7 +12,7 @@ scenario "user can add an article reference by entering required information", {
         fio =  new StubFileIO();
         dao = new FileReferenceDao(fio)
         io = new StubIO("test.bib","1", "1", "abc","O. Olio", "Ketterät menetelmät", 
-        "Ohjelmointi", "2012", "6", "2","13--16","7","kiinnostava","oli", "5")
+        "Ohjelmointi", "2012", "6", "2","13--16","7","kiinnostava","oli", "6")
         ui = new UI(io, dao)
     }
 
@@ -32,7 +32,7 @@ scenario "user can add a book reference by giving required information", {
         fio = new StubFileIO();
         dao = new FileReferenceDao(fio)
         io = new StubIO("test.bib","1", "3", "123","Jaana Java", "Olio-ohjelmointi", 
-        "Yliopistopaino", "2012", "","","","","","","", "5") 
+        "Yliopistopaino", "2012", "","","","","","","", "6") 
         ui = new UI(io, dao)
     }
 
@@ -55,7 +55,7 @@ scenario "user can add a inproceedings reference by giving required information"
         dao = new FileReferenceDao(fio)
         io = new StubIO("test.bib","1", "2", "rk3","Risto Runoilija", "Runolliset algoritmit", 
         "Taide ja tietojenkäsittely", "2014","A. Aalto", "2","Tiede ja taide","145--157",
-        "Suomi","4","TT","Julkaisijat Oy","lue","run", "5") 
+        "Suomi","4","TT","Julkaisijat Oy","lue","run", "6") 
         ui = new UI(io, dao)
     }
 
@@ -76,7 +76,7 @@ scenario "user can add several references by giving required information", {
         dao = new FileReferenceDao(fio)
         io = new StubIO("test.bib","1", "1", "abc","O. Olio", "Ketterät menetelmät", 
         "Ohjelmointi", "2012", "", "","","","","", "1", "3", "123","Jaana Java", "Olio-ohjelmointi", 
-        "Yliopistopaino", "2012", "","","","","","","","5")
+        "Yliopistopaino", "2012", "","","","","","","","6")
         ui = new UI(io, dao)
     }
 

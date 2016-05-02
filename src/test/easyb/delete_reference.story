@@ -11,7 +11,7 @@ scenario "user can add a reference by giving required information and delete the
         fio = new StubFileIO();
         dao = new FileReferenceDao(fio)
         io = new StubIO("test.bib","1", "3", "123","Jaana Java", "Olio-ohjelmointi", 
-        "Yliopistopaino", "2012", "","","","","","","", "4", "123", "5") 
+        "Yliopistopaino", "2012", "","","","","","","", "4", "123", "6") 
         ui = new UI(io, dao)
     }
 

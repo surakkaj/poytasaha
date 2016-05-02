@@ -12,7 +12,7 @@ scenario "user can add a reference by giving required information and modify the
         dao = new FileReferenceDao(fio)
         io = new StubIO("test.bib","1", "3", "123","Jaana Java", "Olio-ohjelmointi", 
         "Yliopistopaino", "2012", "","","","","","","", "3", "123", "Jaana Java", "Scala", 
-        "Yliopistopaino", "2012", "","","","","","","", "5") 
+        "Yliopistopaino", "2012", "","","","","","","", "6") 
         ui = new UI(io, dao)
     }
 
