@@ -36,16 +36,6 @@ public class FileIOTest {
           temp.delete();
         }  
     }
-    
-    @Test
-    public void testWrite() {
-        fio.write(fName, "testaa testaa");
-        fio.write(fName, "kissa koira");
-        String result = fio.readFile(fName);
-        Assert.assertTrue(result.contains("testaa"));
-        Assert.assertTrue(result.contains("koira"));
-    }
-
 
     @Test
     public void testReadFile() {

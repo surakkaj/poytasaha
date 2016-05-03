@@ -98,6 +98,10 @@ public class UI {
             wrongFileType();
             input = io.readLine(">");
         }
+        try {
+            dao.loadfromBibtex(input);
+        } catch (Exception e) {
+        }
         while (this.onSwitch) {
             askWhatUserWantsToDo();
         }

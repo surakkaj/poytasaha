@@ -32,7 +32,7 @@ public class FileIO implements FileIOInterface {
     public void write(String fileName, String text){
         this.filePath = fileName;
         try {
-            FileWriter writer = new FileWriter(filePath, true);
+            FileWriter writer = new FileWriter(filePath, false);
             writer.write(replaceSpecialChars(text));
             writer.close();
         } catch (IOException e) {
