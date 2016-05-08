@@ -3,11 +3,11 @@
 Ohtuminiprojekti
 
 ###Definition of done
-* Toteutus vastaa User story:ssa m‰‰ritelty‰ toiminnallisuutta
-* koodilla on kattavat yksikkˆtestit (rivikattavuus l‰hell‰ 100 %)
-* EasyB:ll‰ toteutetut hyv‰ksym‰testit
-* koodin ajantasainen tilanne n‰kyviss‰ GitHubissa ja testien tilanne CI-palvelimella
-* koodi on selke‰‰ ja pyrkii noudattamaan Javan k‰yt‰nteit‰
+* Toteutus vastaa User story:ssa m√§√§ritelty√§ toiminnallisuutta
+* koodilla on kattavat yksikk√∂testit (rivikattavuus l√§hell√§ 100 %)
+* EasyB:ll√§ toteutetut hyv√§ksym√§testit
+* koodin ajantasainen tilanne n√§kyviss√§ GitHubissa ja testien tilanne CI-palvelimella
+* koodi on selke√§√§ ja pyrkii noudattamaan Javan k√§yt√§nteit√§
 
 
 [Product backlog](https://docs.google.com/spreadsheets/d/1K0Mkf4MwOF64_sZcxFksJuwhyvnLhg5k2N6ST9JWm5U)
@@ -22,7 +22,7 @@ Ohtuminiprojekti
 
 [CI-palvelin Travis](https://travis-ci.org/surakkaj/poytasaha)
 
-[Loppuraportti](docs/) tulossa
+[Loppuraportti](https://docs.google.com/document/d/1BnALYpmf2mJDS77vOswofGgl6qGf6Ecw0Nn6b1eoHj0) 
 
 [![Build Status](https://travis-ci.org/surakkaj/poytasaha.svg?branch=master)](https://travis-ci.org/surakkaj/poytasaha)
 
